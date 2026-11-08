@@ -14,7 +14,11 @@ Fecha: 08/11/2026. Entorno: clon limpio de la etiqueta `v1.2.0` en una carpeta v
 | Batería completa en el clon | 123/123; APTA |
 | Descarga verificada de pesos | Prueba 124 aprobada |
 | Publicación en Streamlit Community Cloud | Publicada el 08/11/2026: https://periovision-upn.streamlit.app (repo `bimbot27/periovision`, `main`, Python 3.12); compilación sin errores, `torch 2.15.0+cpu` |
-| Acceso del administrador y lista sobre la URL pública | Pendiente: requiere iniciar sesión con la clave inicial |
+| Nube: acceso del administrador inicial | Correcto; clave inicial cambiada; modelo Activo |
+| Nube: verificar modelo | `detect`; cuatro clases; 0,57 s |
+| Nube: batería QA desde el panel | 123/124 (30/30 documentadas). Falla la 83: inferencia p95 > 100 ms en la CPU compartida (≈ 80 ms de media). **Observación O-02:** RNF02 se mide en el equipo de referencia (35 ms, cumple) |
+| Nube: respaldos | Automático y manual creados |
+| Nube: usuario con COP y análisis de prueba | Pendiente del responsable |
 
 ## Lista para repetir sobre la URL pública
 

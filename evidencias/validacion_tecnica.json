@@ -45,8 +45,24 @@
       "resultado": "Publicada el 08/11/2026 en https://periovision-upn.streamlit.app desde bimbot27/periovision (main, Python 3.12); compilación sin errores con torch 2.15.0+cpu; pantalla de acceso con periovision-1.2.0"
     },
     {
-      "comprobacion": "Acceso del administrador y lista sobre la URL pública",
-      "resultado": "Pendiente: requiere que el responsable inicie sesión con la clave inicial"
+      "comprobacion": "Nube: acceso del administrador inicial",
+      "resultado": "Correcto; el responsable entró y cambió la clave inicial; Estado del sistema con modelo Activo"
+    },
+    {
+      "comprobacion": "Nube: verificar modelo",
+      "resultado": "Tarea detect; clases Normal, Stage 1, Stage 2, Stage 3; prueba en 0,57 s"
+    },
+    {
+      "comprobacion": "Nube: batería QA desde el panel",
+      "resultado": "123/124 (30/30 documentadas). Falla la prueba 83: inferencia p95 > 100 ms en la CPU compartida de Streamlit Cloud (≈ 80 ms de media). Observación O-02: la meta RNF02 se mide en el equipo de referencia, donde se cumple (35 ms)"
+    },
+    {
+      "comprobacion": "Nube: respaldos",
+      "resultado": "Respaldo diario automático y manual creados"
+    },
+    {
+      "comprobacion": "Nube: usuario con COP y análisis de prueba",
+      "resultado": "Pendiente del responsable (alta de cuentas en producción)"
     }
   ]
 }
