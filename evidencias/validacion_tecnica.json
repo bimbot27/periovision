@@ -4,15 +4,49 @@
   "entorno": "Clon limpio de la etiqueta v1.2.0 en carpeta vacía (sin .venv, datos ni pesos), Windows 11, Python 3.12.10",
   "resumen_instalacion": "Cumple: 198 s, sin pasos manuales",
   "comprobaciones": [
-    {"comprobacion": "Clonar la etiqueta v1.2.0", "resultado": "Correcto; el clon no contiene datos, credenciales, secretos ni pesos"},
-    {"comprobacion": "Instalar con requirements.txt en un entorno nuevo", "resultado": "Correcto en 198 s; PyTorch 2.15.0+cpu y torchvision 0.29.2+cpu (sin CUDA)"},
-    {"comprobacion": "Huella SHA-256 de best.pt", "resultado": "Coincide con la publicada en DESPLIEGUE.md"},
-    {"comprobacion": "Arranque del servidor", "resultado": "Salud ok y página 200 en 2,8 s"},
-    {"comprobacion": "Administrador inicial desde secrets", "resultado": "Creado sin usuarios previos; exige cambiar la clave en el primer acceso"},
-    {"comprobacion": "Estado del sistema", "resultado": "Modelo Activo; 9 páginas de mantenimiento; respaldo diario creado"},
-    {"comprobacion": "Verificar modelo", "resultado": "Tarea detect; clases Normal, Stage 1, Stage 2, Stage 3; prueba en 0,07 s"},
-    {"comprobacion": "Batería completa en el clon", "resultado": "123/123 aprobadas; dictamen APTA"},
-    {"comprobacion": "Descarga verificada de pesos (https y huella)", "resultado": "Prueba 124 aprobada en el repositorio principal"},
-    {"comprobacion": "Publicación en Streamlit Community Cloud", "resultado": "Pendiente del responsable (cuenta del proyecto)"}
+    {
+      "comprobacion": "Clonar la etiqueta v1.2.0",
+      "resultado": "Correcto; el clon no contiene datos, credenciales, secretos ni pesos"
+    },
+    {
+      "comprobacion": "Instalar con requirements.txt en un entorno nuevo",
+      "resultado": "Correcto en 198 s; PyTorch 2.15.0+cpu y torchvision 0.29.2+cpu (sin CUDA)"
+    },
+    {
+      "comprobacion": "Huella SHA-256 de best.pt",
+      "resultado": "Coincide con la publicada en DESPLIEGUE.md"
+    },
+    {
+      "comprobacion": "Arranque del servidor",
+      "resultado": "Salud ok y página 200 en 2,8 s"
+    },
+    {
+      "comprobacion": "Administrador inicial desde secrets",
+      "resultado": "Creado sin usuarios previos; exige cambiar la clave en el primer acceso"
+    },
+    {
+      "comprobacion": "Estado del sistema",
+      "resultado": "Modelo Activo; 9 páginas de mantenimiento; respaldo diario creado"
+    },
+    {
+      "comprobacion": "Verificar modelo",
+      "resultado": "Tarea detect; clases Normal, Stage 1, Stage 2, Stage 3; prueba en 0,07 s"
+    },
+    {
+      "comprobacion": "Batería completa en el clon",
+      "resultado": "123/123 aprobadas; dictamen APTA"
+    },
+    {
+      "comprobacion": "Descarga verificada de pesos (https y huella)",
+      "resultado": "Prueba 124 aprobada en el repositorio principal"
+    },
+    {
+      "comprobacion": "Publicación en Streamlit Community Cloud",
+      "resultado": "Publicada el 08/11/2026 en https://periovision-upn.streamlit.app desde bimbot27/periovision (main, Python 3.12); compilación sin errores con torch 2.15.0+cpu; pantalla de acceso con periovision-1.2.0"
+    },
+    {
+      "comprobacion": "Acceso del administrador y lista sobre la URL pública",
+      "resultado": "Pendiente: requiere que el responsable inicie sesión con la clave inicial"
+    }
   ]
 }

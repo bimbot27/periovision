@@ -13,7 +13,8 @@ Fecha: 08/11/2026. Entorno: clon limpio de la etiqueta `v1.2.0` en una carpeta v
 | Verificar modelo | `detect`; clases Normal, Stage 1, Stage 2, Stage 3; 0,07 s |
 | Batería completa en el clon | 123/123; APTA |
 | Descarga verificada de pesos | Prueba 124 aprobada |
-| Publicación en Streamlit Community Cloud | Pendiente del responsable |
+| Publicación en Streamlit Community Cloud | Publicada el 08/11/2026: https://periovision-upn.streamlit.app (repo `bimbot27/periovision`, `main`, Python 3.12); compilación sin errores, `torch 2.15.0+cpu` |
+| Acceso del administrador y lista sobre la URL pública | Pendiente: requiere iniciar sesión con la clave inicial |
 
 ## Lista para repetir sobre la URL pública
 
