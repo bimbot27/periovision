@@ -1,0 +1,41 @@
+{
+  "inferencia_modelo": {
+    "n": 100,
+    "p50_ms": 33.1,
+    "p95_ms": 35.7,
+    "max_ms": 36.1,
+    "min_ms": 31.0
+  },
+  "carga_a_visualizacion": {
+    "n": 100,
+    "p50_ms": 46.0,
+    "p95_ms": 49.0,
+    "max_ms": 54.7,
+    "min_ms": 44.0
+  },
+  "informe_y_guardado": {
+    "n": 20,
+    "p50_ms": 96.9,
+    "p95_ms": 118.4,
+    "max_ms": 124.9,
+    "min_ms": 93.7
+  },
+  "inicio_de_sesion": {
+    "n": 10,
+    "p50_ms": 364.1,
+    "p95_ms": 387.5,
+    "max_ms": 387.5,
+    "min_ms": 349.0
+  },
+  "entorno": {
+    "cpu": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "nucleos": 12,
+    "hilos_torch": 8,
+    "python": "3.12.10",
+    "dispositivo": "cpu",
+    "imagen": "748 x 512 px",
+    "imgsz": 640,
+    "lote": 1,
+    "calentamiento": "1 inferencia descartada"
+  }
+}

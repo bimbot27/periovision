@@ -1,3 +1,9 @@
-streamlit>=1.32
-ultralytics>=8.0
-pillow>=10.0
+# PerioVision 1.2.0 · dependencias fijadas (RNF06: reproducibilidad).
+# Índice de PyTorch solo CPU: evita descargar CUDA (~2 GB) en Streamlit Community Cloud.
+--extra-index-url https://download.pytorch.org/whl/cpu
+streamlit==1.67.0
+ultralytics==8.4.207
+torch==2.15.0
+torchvision==0.29.2
+pillow==13.0.0
+pi-heif==1.4.0

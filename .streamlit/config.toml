@@ -1,0 +1,55 @@
+# PerioVision · tema inspirado en las Human Interface Guidelines de Apple.
+# Claro y oscuro siguen la preferencia del sistema; se cambian en el menú ⋮ › Settings.
+
+[server]
+maxUploadSize = 200         # MB: zips de prueba y respaldos; cada radiografía se limita a 20 MB en core.py
+headless = true
+enableXsrfProtection = true
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
+showErrorDetails = "none"
+
+[theme]
+font = "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+headingFont = "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI Variable Display', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+baseFontSize = 16
+baseRadius = "12px"
+buttonRadius = "980px"
+showWidgetBorder = true
+showSidebarBorder = true
+
+[theme.light]
+primaryColor = "#0071E3"
+backgroundColor = "#F2F2F7"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#1D1D1F"
+linkColor = "#0066CC"
+borderColor = "#D2D2D7"
+greenColor = "#1B7A34"
+redColor = "#D70015"
+orangeColor = "#C93400"
+blueColor = "#0071E3"
+
+[theme.light.sidebar]
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F2F2F7"
+
+[theme.dark]
+primaryColor = "#0071E3"
+backgroundColor = "#000000"
+secondaryBackgroundColor = "#1C1C1E"
+textColor = "#F5F5F7"
+linkColor = "#2997FF"
+borderColor = "#38383A"
+greenColor = "#30D158"
+redColor = "#FF453A"
+orangeColor = "#FF9F0A"
+blueColor = "#0A84FF"
+
+[theme.dark.sidebar]
+backgroundColor = "#1C1C1E"
+secondaryBackgroundColor = "#2C2C2E"

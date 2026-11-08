@@ -1,0 +1,43 @@
+================================================================================================
+PERIOVISION · LOG DE PRUEBAS QA · CORRECCION
+Fecha: 07/11/2026 23:42:36 (UTC-05)   Python 3.12.10   Pillow 13.0.0   Streamlit 1.67.0   Ultralytics 8.4.207
+================================================================================================
+ID  ESTADO          MS  GRUPO                             PRUEBA
+------------------------------------------------------------------------------------------------
+01  APROBADA      51.9  Carga y calidad                   test_01_carga_valida_sin_metadatos_en_registro
+02  APROBADA      15.3  Carga y calidad                   test_02_rechazo_formato
+03  APROBADA     127.2  Carga y calidad                   test_03_rechazo_archivo_corrupto
+04  APROBADA      47.2  Carga y calidad                   test_04_rechazo_archivo_grande
+05  APROBADA      15.4  Carga y calidad                   test_05_contenido_no_corresponde_a_extension
+06  APROBADA       9.5  Carga y calidad                   test_06_no_evaluable_bloquea_inferencia
+07  APROBADA      13.3  DEMO y bloqueos                   test_07_demo_resultado_prefijado_identificado
+08  APROBADA      25.1  DEMO y bloqueos                   test_08_demo_rechaza_otras_imagenes
+09  APROBADA       9.0  DEMO y bloqueos                   test_09_modelo_sin_permiso_bloqueado
+10  APROBADA      10.6  DEMO y bloqueos                   test_10_pesos_ausentes_sin_fallback
+11  APROBADA      14.9  DEMO y bloqueos                   test_11_fallo_memoria_conserva_registro
+12  APROBADA      13.9  Revisión                          test_12_corregir_preserva_original_y_historial
+13  APROBADA      12.7  Revisión                          test_13_corregir_fuera_de_imagen_rechazado
+14  APROBADA      12.5  Revisión                          test_14_descartar_guarda_original
+15  APROBADA      16.6  Revisión                          test_15_nueva_corrida_no_hereda_revision
+16  APROBADA      36.3  Exportación y datos de entrada    test_16_exporta_demo_y_provisional_sin_sobrescribir
+17  APROBADA      26.8  Exportación y datos de entrada    test_17_exporta_original_y_revision
+18  APROBADA       9.7  Exportación y datos de entrada    test_18_codigos_no_admiten_formulas_o_rutas
+19  APROBADA       9.0  Exportación y datos de entrada    test_19_numeros_no_finitos_rechazados
+20  APROBADA      15.8  Partición estructural             test_20_particion_detecta_paciente_compartido
+21  APROBADA      16.3  Partición estructural             test_21_particion_detecta_hash_duplicado
+22  APROBADA      16.4  Partición estructural             test_22_particion_valida_no_certifica_clinica
+23  APROBADA      15.7  Partición estructural             test_23_manifiesto_vacio_rechazado
+24  APROBADA      10.2  Sin detecciones                   test_24_sin_detecciones_conserva_advertencia
+25  APROBADA       9.9  Lectura de métricas               test_25_ultima_fila_y_maximo_no_son_lo_mismo
+26  APROBADA       7.5  Lectura de métricas               test_26_denominador_cero
+27  APROBADA       7.7  Lectura de métricas               test_27_rechaza_nan
+28  APROBADA       6.9  Lectura de métricas               test_28_rechaza_epocas_repetidas
+29  APROBADA       7.7  Lectura de métricas               test_29_rechaza_metricas_porcentuales_fuera_de_rango
+30  APROBADA       7.4  Lectura de métricas               test_30_rechaza_serie_vacia
+------------------------------------------------------------------------------------------------
+Pruebas documentadas (01-30): 30/30 aprobadas
+Total ejecutadas: 30 · aprobadas 30 · fallidas 0 · errores 0
+DICTAMEN QA: APTA
+================================================================================================
+
+TRAZAS

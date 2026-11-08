@@ -1,0 +1,57 @@
+================================================================================================
+PERIOVISION · LOG DE PRUEBAS QA · FINAL_V2
+Fecha: 08/11/2026 00:26:32 (UTC-05)   Python 3.12.10   Pillow 13.0.0   Streamlit 1.67.0   Ultralytics 8.4.207
+================================================================================================
+ID  ESTADO          MS  GRUPO                                     PRUEBA
+------------------------------------------------------------------------------------------------
+01  APROBADA      10.3  Carga y calidad                           test_01_carga_valida_sin_metadatos_en_registro
+02  APROBADA      11.5  Carga y calidad                           test_02_rechazo_formato
+03  APROBADA      11.4  Carga y calidad                           test_03_rechazo_archivo_corrupto
+04  APROBADA      57.5  Carga y calidad                           test_04_rechazo_archivo_grande
+05  APROBADA      11.8  Carga y calidad                           test_05_contenido_no_corresponde_a_extension
+06  APROBADA      10.3  Carga y calidad                           test_06_no_evaluable_bloquea_inferencia
+07  APROBADA      14.7  DEMO y bloqueos                           test_07_demo_resultado_prefijado_identificado
+08  APROBADA      27.5  DEMO y bloqueos                           test_08_demo_rechaza_otras_imagenes
+09  APROBADA       9.8  DEMO y bloqueos                           test_09_modelo_sin_permiso_bloqueado
+10  APROBADA      10.0  DEMO y bloqueos                           test_10_pesos_ausentes_sin_fallback
+11  APROBADA      16.0  DEMO y bloqueos                           test_11_fallo_memoria_conserva_registro
+12  APROBADA      14.8  Revisión                                  test_12_corregir_preserva_original_y_historial
+13  APROBADA      16.7  Revisión                                  test_13_corregir_fuera_de_imagen_rechazado
+14  APROBADA      17.1  Revisión                                  test_14_descartar_guarda_original
+15  APROBADA      22.4  Revisión                                  test_15_nueva_corrida_no_hereda_revision
+16  APROBADA      42.5  Exportación y datos de entrada            test_16_exporta_demo_y_provisional_sin_sobrescribir
+17  APROBADA      33.0  Exportación y datos de entrada            test_17_exporta_original_y_revision
+18  APROBADA      14.6  Exportación y datos de entrada            test_18_codigos_no_admiten_formulas_o_rutas
+19  APROBADA      13.6  Exportación y datos de entrada            test_19_numeros_no_finitos_rechazados
+20  APROBADA      17.5  Partición estructural                     test_20_particion_detecta_paciente_compartido
+21  APROBADA      15.7  Partición estructural                     test_21_particion_detecta_hash_duplicado
+22  APROBADA      15.1  Partición estructural                     test_22_particion_valida_no_certifica_clinica
+23  APROBADA      12.9  Partición estructural                     test_23_manifiesto_vacio_rechazado
+24  APROBADA      12.7  Sin detecciones                           test_24_sin_detecciones_conserva_advertencia
+25  APROBADA       3.4  Lectura de métricas                       test_25_ultima_fila_y_maximo_no_son_lo_mismo
+26  APROBADA       2.5  Lectura de métricas                       test_26_denominador_cero
+27  APROBADA       8.8  Lectura de métricas                       test_27_rechaza_nan
+28  APROBADA       2.6  Lectura de métricas                       test_28_rechaza_epocas_repetidas
+29  APROBADA       6.9  Lectura de métricas                       test_29_rechaza_metricas_porcentuales_fuera_de_rango
+30  APROBADA       3.2  Lectura de métricas                       test_30_rechaza_serie_vacia
+31  APROBADA     817.9  Seguridad e inicio de sesión (adicional)  test_31_contrasena_no_se_guarda_en_claro
+32  APROBADA    1631.2  Seguridad e inicio de sesión (adicional)  test_32_sal_unica_por_usuario
+33  APROBADA    1577.6  Seguridad e inicio de sesión (adicional)  test_33_acceso_correcto_devuelve_rol
+34  APROBADA    1518.5  Seguridad e inicio de sesión (adicional)  test_34_mensaje_generico_no_revela_usuario
+35  APROBADA    3052.9  Seguridad e inicio de sesión (adicional)  test_35_bloqueo_tras_intentos_fallidos
+36  APROBADA     793.6  Seguridad e inicio de sesión (adicional)  test_36_politica_de_contrasena
+37  APROBADA     834.6  Seguridad e inicio de sesión (adicional)  test_37_solo_dos_roles
+38  APROBADA    2665.6  Seguridad e inicio de sesión (adicional)  test_38_usuario_invalido_o_inyeccion_rechazada
+39  APROBADA     793.7  Seguridad e inicio de sesión (adicional)  test_39_siempre_queda_un_administrador
+40  APROBADA    2276.0  Seguridad e inicio de sesión (adicional)  test_40_cambio_de_contrasena_y_auditoria_sin_secretos
+41  APROBADA     465.7  Perfil, informes e historial (adicional)  test_41_perfil_valida_y_exige_cop_al_usuario
+42  APROBADA      19.2  Perfil, informes e historial (adicional)  test_42_csv_es_un_informe_legible
+43  APROBADA     149.1  Perfil, informes e historial (adicional)  test_43_pdf_generado_con_profesional
+44  APROBADA     120.9  Perfil, informes e historial (adicional)  test_44_historial_guarda_y_lista_quien_valido
+------------------------------------------------------------------------------------------------
+Pruebas documentadas (01-30): 30/30 aprobadas
+Total ejecutadas: 44 · aprobadas 44 · fallidas 0 · errores 0
+DICTAMEN QA: APTA
+================================================================================================
+
+TRAZAS

@@ -1,0 +1,612 @@
+================================================================================================
+PERIOVISION · LOG DE PRUEBAS QA · INICIAL
+Fecha: 07/11/2026 23:42:15 (UTC-05)   Python 3.12.10   Pillow 13.0.0   Streamlit 1.67.0   Ultralytics 8.4.207
+================================================================================================
+ID  ESTADO          MS  GRUPO                             PRUEBA
+------------------------------------------------------------------------------------------------
+01  ERROR          0.0  Carga y calidad                   test_01_carga_valida_sin_metadatos_en_registro
+                        ↳ ModuleNotFoundError: No module named 'core'
+02  ERROR          0.0  Carga y calidad                   test_02_rechazo_formato
+                        ↳ ModuleNotFoundError: No module named 'core'
+03  ERROR          0.0  Carga y calidad                   test_03_rechazo_archivo_corrupto
+                        ↳ ModuleNotFoundError: No module named 'core'
+04  ERROR          0.0  Carga y calidad                   test_04_rechazo_archivo_grande
+                        ↳ ModuleNotFoundError: No module named 'core'
+05  ERROR          0.0  Carga y calidad                   test_05_contenido_no_corresponde_a_extension
+                        ↳ ModuleNotFoundError: No module named 'core'
+06  ERROR          0.0  Carga y calidad                   test_06_no_evaluable_bloquea_inferencia
+                        ↳ ModuleNotFoundError: No module named 'core'
+07  ERROR          0.0  DEMO y bloqueos                   test_07_demo_resultado_prefijado_identificado
+                        ↳ ModuleNotFoundError: No module named 'core'
+08  ERROR          0.0  DEMO y bloqueos                   test_08_demo_rechaza_otras_imagenes
+                        ↳ ModuleNotFoundError: No module named 'core'
+09  ERROR          0.0  DEMO y bloqueos                   test_09_modelo_sin_permiso_bloqueado
+                        ↳ ModuleNotFoundError: No module named 'core'
+10  ERROR          0.0  DEMO y bloqueos                   test_10_pesos_ausentes_sin_fallback
+                        ↳ ModuleNotFoundError: No module named 'core'
+11  ERROR          0.0  DEMO y bloqueos                   test_11_fallo_memoria_conserva_registro
+                        ↳ ModuleNotFoundError: No module named 'core'
+12  ERROR          0.0  Revisión                          test_12_corregir_preserva_original_y_historial
+                        ↳ ModuleNotFoundError: No module named 'core'
+13  ERROR          0.0  Revisión                          test_13_corregir_fuera_de_imagen_rechazado
+                        ↳ ModuleNotFoundError: No module named 'core'
+14  ERROR          0.0  Revisión                          test_14_descartar_guarda_original
+                        ↳ ModuleNotFoundError: No module named 'core'
+15  ERROR          0.0  Revisión                          test_15_nueva_corrida_no_hereda_revision
+                        ↳ ModuleNotFoundError: No module named 'core'
+16  ERROR          0.0  Exportación y datos de entrada    test_16_exporta_demo_y_provisional_sin_sobrescribir
+                        ↳ ModuleNotFoundError: No module named 'core'
+17  ERROR          0.0  Exportación y datos de entrada    test_17_exporta_original_y_revision
+                        ↳ ModuleNotFoundError: No module named 'core'
+18  ERROR          0.0  Exportación y datos de entrada    test_18_codigos_no_admiten_formulas_o_rutas
+                        ↳ ModuleNotFoundError: No module named 'core'
+19  ERROR          0.0  Exportación y datos de entrada    test_19_numeros_no_finitos_rechazados
+                        ↳ ModuleNotFoundError: No module named 'core'
+20  ERROR          0.0  Partición estructural             test_20_particion_detecta_paciente_compartido
+                        ↳ ModuleNotFoundError: No module named 'core'
+21  ERROR          0.0  Partición estructural             test_21_particion_detecta_hash_duplicado
+                        ↳ ModuleNotFoundError: No module named 'core'
+22  ERROR          0.0  Partición estructural             test_22_particion_valida_no_certifica_clinica
+                        ↳ ModuleNotFoundError: No module named 'core'
+23  ERROR          0.0  Partición estructural             test_23_manifiesto_vacio_rechazado
+                        ↳ ModuleNotFoundError: No module named 'core'
+24  ERROR          0.0  Sin detecciones                   test_24_sin_detecciones_conserva_advertencia
+                        ↳ ModuleNotFoundError: No module named 'core'
+25  ERROR          0.0  Lectura de métricas               test_25_ultima_fila_y_maximo_no_son_lo_mismo
+                        ↳ ModuleNotFoundError: No module named 'metrics_csv'
+26  ERROR          0.0  Lectura de métricas               test_26_denominador_cero
+                        ↳ ModuleNotFoundError: No module named 'metrics_csv'
+27  ERROR          0.0  Lectura de métricas               test_27_rechaza_nan
+                        ↳ ModuleNotFoundError: No module named 'metrics_csv'
+28  ERROR          0.0  Lectura de métricas               test_28_rechaza_epocas_repetidas
+                        ↳ ModuleNotFoundError: No module named 'metrics_csv'
+29  ERROR          0.0  Lectura de métricas               test_29_rechaza_metricas_porcentuales_fuera_de_rango
+                        ↳ ModuleNotFoundError: No module named 'metrics_csv'
+30  ERROR          0.0  Lectura de métricas               test_30_rechaza_serie_vacia
+                        ↳ ModuleNotFoundError: No module named 'metrics_csv'
+------------------------------------------------------------------------------------------------
+Pruebas documentadas (01-30): 0/30 aprobadas
+Total ejecutadas: 30 · aprobadas 0 · fallidas 0 · errores 30
+DICTAMEN QA: NO APTA
+================================================================================================
+
+TRAZAS
+[01] test_01_carga_valida_sin_metadatos_en_registro
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[02] test_02_rechazo_formato
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[03] test_03_rechazo_archivo_corrupto
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[04] test_04_rechazo_archivo_grande
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[05] test_05_contenido_no_corresponde_a_extension
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[06] test_06_no_evaluable_bloquea_inferencia
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[07] test_07_demo_resultado_prefijado_identificado
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[08] test_08_demo_rechaza_otras_imagenes
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[09] test_09_modelo_sin_permiso_bloqueado
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[10] test_10_pesos_ausentes_sin_fallback
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[11] test_11_fallo_memoria_conserva_registro
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[12] test_12_corregir_preserva_original_y_historial
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[13] test_13_corregir_fuera_de_imagen_rechazado
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[14] test_14_descartar_guarda_original
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[15] test_15_nueva_corrida_no_hereda_revision
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[16] test_16_exporta_demo_y_provisional_sin_sobrescribir
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[17] test_17_exporta_original_y_revision
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[18] test_18_codigos_no_admiten_formulas_o_rutas
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[19] test_19_numeros_no_finitos_rechazados
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[20] test_20_particion_detecta_paciente_compartido
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[21] test_21_particion_detecta_hash_duplicado
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[22] test_22_particion_valida_no_certifica_clinica
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[23] test_23_manifiesto_vacio_rechazado
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[24] test_24_sin_detecciones_conserva_advertencia
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_producto.py", line 8, in <module>
+    from core import (Case, DemoDetector, YoloDetector, ProductError, MAX_BYTES,
+ModuleNotFoundError: No module named 'core'
+
+[25] test_25_ultima_fila_y_maximo_no_son_lo_mismo
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_metrics.py", line 4, in <module>
+    from metrics_csv import summarize
+ModuleNotFoundError: No module named 'metrics_csv'
+
+[26] test_26_denominador_cero
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_metrics.py", line 4, in <module>
+    from metrics_csv import summarize
+ModuleNotFoundError: No module named 'metrics_csv'
+
+[27] test_27_rechaza_nan
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_metrics.py", line 4, in <module>
+    from metrics_csv import summarize
+ModuleNotFoundError: No module named 'metrics_csv'
+
+[28] test_28_rechaza_epocas_repetidas
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_metrics.py", line 4, in <module>
+    from metrics_csv import summarize
+ModuleNotFoundError: No module named 'metrics_csv'
+
+[29] test_29_rechaza_metricas_porcentuales_fuera_de_rango
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_metrics.py", line 4, in <module>
+    from metrics_csv import summarize
+ModuleNotFoundError: No module named 'metrics_csv'
+
+[30] test_30_rechaza_serie_vacia
+Traceback (most recent call last):
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\ejecutar_pruebas_qa.py", line 97, in main
+    suite = loader.loadTestsFromModule(importlib.import_module(module))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\migue\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\migue\Downloads\CAPSTONE PROJECT\proyecto\pruebas\test_metrics.py", line 4, in <module>
+    from metrics_csv import summarize
+ModuleNotFoundError: No module named 'metrics_csv'

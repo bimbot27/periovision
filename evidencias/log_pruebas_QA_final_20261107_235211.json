@@ -1,0 +1,384 @@
+{
+  "etiqueta": "final",
+  "fecha_local": "2026-11-07T23:52:11.886684-05:00",
+  "python": "3.12.10",
+  "dependencias": {
+    "Pillow": "13.0.0",
+    "streamlit": "1.67.0",
+    "ultralytics": "8.4.207"
+  },
+  "documentadas_aprobadas": 30,
+  "total": 40,
+  "aprobadas": 40,
+  "dictamen": "APTA",
+  "resultados": [
+    {
+      "id": "01",
+      "prueba": "test_01_carga_valida_sin_metadatos_en_registro",
+      "grupo": "Carga y calidad",
+      "estado": "APROBADA",
+      "duracion_ms": 44.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "02",
+      "prueba": "test_02_rechazo_formato",
+      "grupo": "Carga y calidad",
+      "estado": "APROBADA",
+      "duracion_ms": 14.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "03",
+      "prueba": "test_03_rechazo_archivo_corrupto",
+      "grupo": "Carga y calidad",
+      "estado": "APROBADA",
+      "duracion_ms": 104.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "04",
+      "prueba": "test_04_rechazo_archivo_grande",
+      "grupo": "Carga y calidad",
+      "estado": "APROBADA",
+      "duracion_ms": 83.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "05",
+      "prueba": "test_05_contenido_no_corresponde_a_extension",
+      "grupo": "Carga y calidad",
+      "estado": "APROBADA",
+      "duracion_ms": 12.1,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "06",
+      "prueba": "test_06_no_evaluable_bloquea_inferencia",
+      "grupo": "Carga y calidad",
+      "estado": "APROBADA",
+      "duracion_ms": 9.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "07",
+      "prueba": "test_07_demo_resultado_prefijado_identificado",
+      "grupo": "DEMO y bloqueos",
+      "estado": "APROBADA",
+      "duracion_ms": 15.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "08",
+      "prueba": "test_08_demo_rechaza_otras_imagenes",
+      "grupo": "DEMO y bloqueos",
+      "estado": "APROBADA",
+      "duracion_ms": 22.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "09",
+      "prueba": "test_09_modelo_sin_permiso_bloqueado",
+      "grupo": "DEMO y bloqueos",
+      "estado": "APROBADA",
+      "duracion_ms": 10.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "10",
+      "prueba": "test_10_pesos_ausentes_sin_fallback",
+      "grupo": "DEMO y bloqueos",
+      "estado": "APROBADA",
+      "duracion_ms": 10.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "11",
+      "prueba": "test_11_fallo_memoria_conserva_registro",
+      "grupo": "DEMO y bloqueos",
+      "estado": "APROBADA",
+      "duracion_ms": 15.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "12",
+      "prueba": "test_12_corregir_preserva_original_y_historial",
+      "grupo": "Revisión",
+      "estado": "APROBADA",
+      "duracion_ms": 14.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "13",
+      "prueba": "test_13_corregir_fuera_de_imagen_rechazado",
+      "grupo": "Revisión",
+      "estado": "APROBADA",
+      "duracion_ms": 14.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "14",
+      "prueba": "test_14_descartar_guarda_original",
+      "grupo": "Revisión",
+      "estado": "APROBADA",
+      "duracion_ms": 14.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "15",
+      "prueba": "test_15_nueva_corrida_no_hereda_revision",
+      "grupo": "Revisión",
+      "estado": "APROBADA",
+      "duracion_ms": 17.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "16",
+      "prueba": "test_16_exporta_demo_y_provisional_sin_sobrescribir",
+      "grupo": "Exportación y datos de entrada",
+      "estado": "APROBADA",
+      "duracion_ms": 32.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "17",
+      "prueba": "test_17_exporta_original_y_revision",
+      "grupo": "Exportación y datos de entrada",
+      "estado": "APROBADA",
+      "duracion_ms": 24.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "18",
+      "prueba": "test_18_codigos_no_admiten_formulas_o_rutas",
+      "grupo": "Exportación y datos de entrada",
+      "estado": "APROBADA",
+      "duracion_ms": 9.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "19",
+      "prueba": "test_19_numeros_no_finitos_rechazados",
+      "grupo": "Exportación y datos de entrada",
+      "estado": "APROBADA",
+      "duracion_ms": 9.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "20",
+      "prueba": "test_20_particion_detecta_paciente_compartido",
+      "grupo": "Partición estructural",
+      "estado": "APROBADA",
+      "duracion_ms": 11.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "21",
+      "prueba": "test_21_particion_detecta_hash_duplicado",
+      "grupo": "Partición estructural",
+      "estado": "APROBADA",
+      "duracion_ms": 12.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "22",
+      "prueba": "test_22_particion_valida_no_certifica_clinica",
+      "grupo": "Partición estructural",
+      "estado": "APROBADA",
+      "duracion_ms": 12.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "23",
+      "prueba": "test_23_manifiesto_vacio_rechazado",
+      "grupo": "Partición estructural",
+      "estado": "APROBADA",
+      "duracion_ms": 18.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "24",
+      "prueba": "test_24_sin_detecciones_conserva_advertencia",
+      "grupo": "Sin detecciones",
+      "estado": "APROBADA",
+      "duracion_ms": 10.2,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "25",
+      "prueba": "test_25_ultima_fila_y_maximo_no_son_lo_mismo",
+      "grupo": "Lectura de métricas",
+      "estado": "APROBADA",
+      "duracion_ms": 4.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "26",
+      "prueba": "test_26_denominador_cero",
+      "grupo": "Lectura de métricas",
+      "estado": "APROBADA",
+      "duracion_ms": 2.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "27",
+      "prueba": "test_27_rechaza_nan",
+      "grupo": "Lectura de métricas",
+      "estado": "APROBADA",
+      "duracion_ms": 2.1,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "28",
+      "prueba": "test_28_rechaza_epocas_repetidas",
+      "grupo": "Lectura de métricas",
+      "estado": "APROBADA",
+      "duracion_ms": 2.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "29",
+      "prueba": "test_29_rechaza_metricas_porcentuales_fuera_de_rango",
+      "grupo": "Lectura de métricas",
+      "estado": "APROBADA",
+      "duracion_ms": 2.2,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "30",
+      "prueba": "test_30_rechaza_serie_vacia",
+      "grupo": "Lectura de métricas",
+      "estado": "APROBADA",
+      "duracion_ms": 2.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "31",
+      "prueba": "test_31_contrasena_no_se_guarda_en_claro",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "estado": "APROBADA",
+      "duracion_ms": 760.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "32",
+      "prueba": "test_32_sal_unica_por_usuario",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "estado": "APROBADA",
+      "duracion_ms": 1433.1,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "33",
+      "prueba": "test_33_acceso_correcto_devuelve_rol",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "estado": "APROBADA",
+      "duracion_ms": 1478.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "34",
+      "prueba": "test_34_mensaje_generico_no_revela_usuario",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "estado": "APROBADA",
+      "duracion_ms": 1448.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "35",
+      "prueba": "test_35_bloqueo_tras_intentos_fallidos",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "estado": "APROBADA",
+      "duracion_ms": 3091.2,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "36",
+      "prueba": "test_36_politica_de_contrasena",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "estado": "APROBADA",
+      "duracion_ms": 707.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "37",
+      "prueba": "test_37_solo_dos_roles",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "estado": "APROBADA",
+      "duracion_ms": 718.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "38",
+      "prueba": "test_38_usuario_invalido_o_inyeccion_rechazada",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "estado": "APROBADA",
+      "duracion_ms": 2477.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "39",
+      "prueba": "test_39_siempre_queda_un_administrador",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "estado": "APROBADA",
+      "duracion_ms": 769.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "40",
+      "prueba": "test_40_cambio_de_contrasena_y_auditoria_sin_secretos",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "estado": "APROBADA",
+      "duracion_ms": 2361.4,
+      "detalle": "",
+      "traza": ""
+    }
+  ],
+  "source_sha256": {
+    "app.py": "5d8fb7b75ad15a0487bf7379e638b1a308441932fd3c154c847a2d2e0714459c",
+    "auth.py": "a70bef11c8d2d7549beef875d768f3985b687c84e6d0baecd720b451bbe3de86",
+    "core.py": "8773d33c69ec8cf54604ff00ed16c0865a5f2d0d44f5da7103d5fe7724b5534e",
+    "crear_usuarios.py": "a914ef52dc13ec458fe43745fc06b1821948ba71a5c5d6e6425614fd5d706bf9",
+    "ejecutar_pruebas_qa.py": "113b7738c9f7aedef96992893f12c056f27c8dbf661a7b1612400730921802b2",
+    "metrics_csv.py": "5475e8d8c4a069964bcb4147142e03b13a771a8498e9f445adaf7d027e65acf2"
+  }
+}

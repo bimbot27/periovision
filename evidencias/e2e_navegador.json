@@ -1,0 +1,19 @@
+{
+  "prueba": "E2E-01 Recorrido completo usuario y administrador en navegador",
+  "fecha_local": "2026-11-08T00:58-05:00 a 01:02-05:00",
+  "entorno": "Navegador integrado (Chromium) contra http://localhost:8510, datos aislados en carpeta temporal, best.pt real",
+  "pasos": [
+    {"n": 1, "accion": "Abrir la pantalla de acceso", "esperado": "Formulario de acceso y documento en español", "observado": "lang='es', título PerioVision, campos Usuario y Contraseña", "estado": "APROBADA"},
+    {"n": 2, "accion": "Iniciar sesión como e2e.user", "esperado": "Página Analizar radiografía", "observado": "Analizar radiografía; barra lateral con nombre y COP 54321", "estado": "APROBADA"},
+    {"n": 3, "accion": "Cargar radiografia_ejemplo.jpg (748 x 512 px)", "esperado": "Vista previa y botón Analizar", "observado": "Vista previa con código de caso", "estado": "APROBADA"},
+    {"n": 4, "accion": "Pulsar Analizar (servidor recién iniciado)", "esperado": "Resultado en <= 3 s", "observado": "Antes de la corrección D-05: 6 856 ms. Después: 371 ms; 3 hallazgos Stage 2", "estado": "APROBADA tras corrección"},
+    {"n": 5, "accion": "Volver a analizar (modelo en memoria)", "esperado": "Resultado en <= 3 s", "observado": "453 ms; tiempo del modelo 0,05 s", "estado": "APROBADA"},
+    {"n": 6, "accion": "Rechazar con observación '=1+1 Imagen con artefacto, repetir toma.'", "esperado": "Revisión registrada y descargas PDF, CSV y JSON", "observado": "Revisión registrada: Rechazada; 3 botones de descarga", "estado": "APROBADA"},
+    {"n": 7, "accion": "Revisar informe.csv guardado", "esperado": "Fórmula neutralizada", "observado": "Observaciones,\"'=1+1 Imagen con artefacto, repetir toma.\"", "estado": "APROBADA"},
+    {"n": 8, "accion": "Historial > filtro Rechazadas", "esperado": "Caso listado con profesional y COP", "observado": "1 de 1 casos: Rechazada · Lucía Prueba Ramos · COP 54321", "estado": "APROBADA"},
+    {"n": 9, "accion": "Cerrar sesión y navegar con teclado (Tab)", "esperado": "Vuelve al acceso; foco visible", "observado": "Contorno de foco sólido de 3 px", "estado": "APROBADA"},
+    {"n": 10, "accion": "Iniciar sesión como e2e.admin", "esperado": "Solo páginas de mantenimiento", "observado": "Estado del sistema, Modelo y calibración, Usuarios, Pruebas QA, Auditoría, Mi cuenta", "estado": "APROBADA"},
+    {"n": 11, "accion": "Abrir Auditoría", "esperado": "Rastro completo del recorrido", "observado": "acceso, 2 análisis, revisión Rechazada, cierre de sesión, acceso admin", "estado": "APROBADA"},
+    {"n": 12, "accion": "Consola del navegador", "esperado": "Sin errores de la app", "observado": "Solo reconexiones por el reinicio del servidor", "estado": "APROBADA"}
+  ]
+}

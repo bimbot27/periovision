@@ -1,0 +1,19 @@
+# Entorno y cachés
+.venv/
+__pycache__/
+*.pyc
+.yolo/
+.coverage
+htmlcov/
+
+# Datos de uso: usuarios, casos, auditoría y respaldos NO van al repositorio (RNF04)
+datos/
+CREDENCIALES_INICIALES.txt
+.streamlit/secrets.toml
+
+# Pesos del modelo: custodia separada (informe, sección 3). Ver DESPLIEGUE.md para publicarlos.
+*.pt
+*.descarga
+
+# Copia de la demo original: su historial queda en la etiqueta v1.0.0
+respaldo_original/
