@@ -1,31 +1,31 @@
 {
   "inferencia_modelo": {
     "n": 100,
-    "p50_ms": 32.5,
-    "p95_ms": 34.2,
-    "max_ms": 37.5,
-    "min_ms": 30.3
+    "p50_ms": 32.9,
+    "p95_ms": 34.9,
+    "max_ms": 38.7,
+    "min_ms": 30.9
   },
   "carga_a_visualizacion": {
     "n": 100,
-    "p50_ms": 46.8,
-    "p95_ms": 54.9,
-    "max_ms": 65.9,
-    "min_ms": 43.4
+    "p50_ms": 45.9,
+    "p95_ms": 47.5,
+    "max_ms": 51.7,
+    "min_ms": 43.7
   },
   "informe_y_guardado": {
     "n": 20,
-    "p50_ms": 97.2,
-    "p95_ms": 118.2,
-    "max_ms": 121.5,
-    "min_ms": 93.3
+    "p50_ms": 96.1,
+    "p95_ms": 106.1,
+    "max_ms": 112.3,
+    "min_ms": 94.3
   },
   "inicio_de_sesion": {
     "n": 10,
-    "p50_ms": 365.5,
-    "p95_ms": 373.7,
-    "max_ms": 373.7,
-    "min_ms": 355.5
+    "p50_ms": 361.3,
+    "p95_ms": 371.8,
+    "max_ms": 371.8,
+    "min_ms": 349.5
   },
   "entorno": {
     "cpu": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",

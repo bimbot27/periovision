@@ -66,6 +66,33 @@ class SistemaMvpTests(unittest.TestCase):
         self.assertTrue(users["cloud.admin"]["must_change"])
         self.assertNotIn("Nube-Inicial-2026!", json.dumps(users))
 
+    def test_124_descarga_del_modelo_verificada_por_huella(self):
+        import hashlib
+        import io
+        import tempfile
+        import urllib.request
+        from unittest import mock
+        ns = app_namespace()
+        payload = b"pesos-de-prueba"
+        good = hashlib.sha256(payload).hexdigest()
+        model = Path(tempfile.mkdtemp()) / "best.pt"
+        ns["MODEL_PATH"] = model
+        ns["store"] = self.data.store  # ya hay usuarios: no crea administrador
+        fake = lambda url, timeout: io.BytesIO(payload)  # noqa: E731
+        cases = [({"model_url": "http://inseguro/best.pt", "model_sha256": good}, "https://"),
+                 ({"model_url": "file:///C:/best.pt", "model_sha256": good}, "https://"),
+                 ({"model_url": "https://ok/best.pt"}, "model_sha256"),
+                 ({"model_url": "https://ok/best.pt", "model_sha256": "0" * 64}, "no coincide")]
+        with mock.patch.object(urllib.request, "urlopen", fake):
+            for secrets, message in cases:
+                ns["st"].secrets = {"periovision": secrets}
+                with self.assertRaisesRegex(ns["ProductError"], message):
+                    ns["cloud_bootstrap"]()
+                self.assertFalse(model.exists())
+            ns["st"].secrets = {"periovision": {"model_url": "https://ok/best.pt", "model_sha256": good}}
+            self.assertEqual(ns["cloud_bootstrap"](), "modelo verificado")
+        self.assertEqual(model.read_bytes(), payload)
+
     def test_119_correccion_desde_el_editor(self):
         ns = app_namespace()
         original = [{"class": "Stage 2", "confidence": 0.87, "box": [1, 2, 3, 4]}]

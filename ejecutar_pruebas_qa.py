@@ -46,6 +46,7 @@ GROUPS = [
     (102, 113, "Funciones que completan el MVP"),
     (114, 121, "Sistema (funciones del MVP)"),
     (122, 123, "Protección de datos y secretos"),
+    (124, 199, "Sistema (despliegue en la nube)"),
 ]
 
 # Tipo de prueba por archivo (las documentadas 01-30 forman la batería de regresión).

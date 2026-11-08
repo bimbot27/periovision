@@ -1,0 +1,1314 @@
+{
+  "etiqueta": "v1-2-0_final",
+  "fecha_local": "2026-11-08T01:51:22.138195-05:00",
+  "python": "3.12.10",
+  "dependencias": {
+    "Pillow": "13.0.0",
+    "streamlit": "1.67.0",
+    "ultralytics": "8.4.207"
+  },
+  "documentadas_aprobadas": 30,
+  "total": 124,
+  "aprobadas": 124,
+  "dictamen": "APTA",
+  "por_tipo": {
+    "Regresión": {
+      "aprobadas": 30,
+      "total": 30
+    },
+    "Seguridad": {
+      "aprobadas": 19,
+      "total": 19
+    },
+    "Funcional (perfil e informes)": {
+      "aprobadas": 4,
+      "total": 4
+    },
+    "Unitaria": {
+      "aprobadas": 12,
+      "total": 12
+    },
+    "Integración": {
+      "aprobadas": 6,
+      "total": 6
+    },
+    "Sistema": {
+      "aprobadas": 17,
+      "total": 17
+    },
+    "Aceptación": {
+      "aprobadas": 8,
+      "total": 8
+    },
+    "Humo": {
+      "aprobadas": 4,
+      "total": 4
+    },
+    "Rendimiento": {
+      "aprobadas": 4,
+      "total": 4
+    },
+    "Usabilidad": {
+      "aprobadas": 6,
+      "total": 6
+    },
+    "Funcional (MVP completo)": {
+      "aprobadas": 14,
+      "total": 14
+    }
+  },
+  "resultados": [
+    {
+      "id": "01",
+      "prueba": "test_01_carga_valida_sin_metadatos_en_registro",
+      "grupo": "Carga y calidad",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 10.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "02",
+      "prueba": "test_02_rechazo_formato",
+      "grupo": "Carga y calidad",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 12.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "03",
+      "prueba": "test_03_rechazo_archivo_corrupto",
+      "grupo": "Carga y calidad",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 12.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "04",
+      "prueba": "test_04_rechazo_archivo_grande",
+      "grupo": "Carga y calidad",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 55.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "05",
+      "prueba": "test_05_contenido_no_corresponde_a_extension",
+      "grupo": "Carga y calidad",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 12.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "06",
+      "prueba": "test_06_no_evaluable_bloquea_inferencia",
+      "grupo": "Carga y calidad",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 11.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "07",
+      "prueba": "test_07_demo_resultado_prefijado_identificado",
+      "grupo": "DEMO y bloqueos",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 13.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "08",
+      "prueba": "test_08_demo_rechaza_otras_imagenes",
+      "grupo": "DEMO y bloqueos",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 22.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "09",
+      "prueba": "test_09_modelo_sin_permiso_bloqueado",
+      "grupo": "DEMO y bloqueos",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 12.2,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "10",
+      "prueba": "test_10_pesos_ausentes_sin_fallback",
+      "grupo": "DEMO y bloqueos",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 10.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "11",
+      "prueba": "test_11_fallo_memoria_conserva_registro",
+      "grupo": "DEMO y bloqueos",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 12.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "12",
+      "prueba": "test_12_corregir_preserva_original_y_historial",
+      "grupo": "Revisión",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 12.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "13",
+      "prueba": "test_13_corregir_fuera_de_imagen_rechazado",
+      "grupo": "Revisión",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 12.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "14",
+      "prueba": "test_14_descartar_guarda_original",
+      "grupo": "Revisión",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 12.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "15",
+      "prueba": "test_15_nueva_corrida_no_hereda_revision",
+      "grupo": "Revisión",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 15.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "16",
+      "prueba": "test_16_exporta_demo_y_provisional_sin_sobrescribir",
+      "grupo": "Exportación y datos de entrada",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 31.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "17",
+      "prueba": "test_17_exporta_original_y_revision",
+      "grupo": "Exportación y datos de entrada",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 24.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "18",
+      "prueba": "test_18_codigos_no_admiten_formulas_o_rutas",
+      "grupo": "Exportación y datos de entrada",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 9.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "19",
+      "prueba": "test_19_numeros_no_finitos_rechazados",
+      "grupo": "Exportación y datos de entrada",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 9.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "20",
+      "prueba": "test_20_particion_detecta_paciente_compartido",
+      "grupo": "Partición estructural",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 11.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "21",
+      "prueba": "test_21_particion_detecta_hash_duplicado",
+      "grupo": "Partición estructural",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 11.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "22",
+      "prueba": "test_22_particion_valida_no_certifica_clinica",
+      "grupo": "Partición estructural",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 11.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "23",
+      "prueba": "test_23_manifiesto_vacio_rechazado",
+      "grupo": "Partición estructural",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 12.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "24",
+      "prueba": "test_24_sin_detecciones_conserva_advertencia",
+      "grupo": "Sin detecciones",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 10.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "25",
+      "prueba": "test_25_ultima_fila_y_maximo_no_son_lo_mismo",
+      "grupo": "Lectura de métricas",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 3.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "26",
+      "prueba": "test_26_denominador_cero",
+      "grupo": "Lectura de métricas",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 3.1,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "27",
+      "prueba": "test_27_rechaza_nan",
+      "grupo": "Lectura de métricas",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 2.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "28",
+      "prueba": "test_28_rechaza_epocas_repetidas",
+      "grupo": "Lectura de métricas",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 2.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "29",
+      "prueba": "test_29_rechaza_metricas_porcentuales_fuera_de_rango",
+      "grupo": "Lectura de métricas",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 2.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "30",
+      "prueba": "test_30_rechaza_serie_vacia",
+      "grupo": "Lectura de métricas",
+      "tipo": "Regresión",
+      "estado": "APROBADA",
+      "duracion_ms": 2.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "31",
+      "prueba": "test_31_contrasena_no_se_guarda_en_claro",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 737.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "32",
+      "prueba": "test_32_sal_unica_por_usuario",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 1441.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "33",
+      "prueba": "test_33_acceso_correcto_devuelve_rol",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 1454.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "34",
+      "prueba": "test_34_mensaje_generico_no_revela_usuario",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 1405.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "35",
+      "prueba": "test_35_bloqueo_tras_intentos_fallidos",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 2853.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "36",
+      "prueba": "test_36_politica_de_contrasena",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 717.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "37",
+      "prueba": "test_37_solo_dos_roles",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 729.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "38",
+      "prueba": "test_38_usuario_invalido_o_inyeccion_rechazada",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 2520.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "39",
+      "prueba": "test_39_siempre_queda_un_administrador",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 726.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "40",
+      "prueba": "test_40_cambio_de_contrasena_y_auditoria_sin_secretos",
+      "grupo": "Seguridad e inicio de sesión (adicional)",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 2156.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "41",
+      "prueba": "test_41_perfil_valida_y_exige_cop_al_usuario",
+      "grupo": "Perfil, informes e historial (adicional)",
+      "tipo": "Funcional (perfil e informes)",
+      "estado": "APROBADA",
+      "duracion_ms": 369.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "42",
+      "prueba": "test_42_csv_es_un_informe_legible",
+      "grupo": "Perfil, informes e historial (adicional)",
+      "tipo": "Funcional (perfil e informes)",
+      "estado": "APROBADA",
+      "duracion_ms": 13.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "43",
+      "prueba": "test_43_pdf_generado_con_profesional",
+      "grupo": "Perfil, informes e historial (adicional)",
+      "tipo": "Funcional (perfil e informes)",
+      "estado": "APROBADA",
+      "duracion_ms": 44.1,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "44",
+      "prueba": "test_44_historial_guarda_y_lista_quien_valido",
+      "grupo": "Perfil, informes e historial (adicional)",
+      "tipo": "Funcional (perfil e informes)",
+      "estado": "APROBADA",
+      "duracion_ms": 82.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "45",
+      "prueba": "test_45_check_detections_acepta_valida_y_normaliza_tipos",
+      "grupo": "Unitarias",
+      "tipo": "Unitaria",
+      "estado": "APROBADA",
+      "duracion_ms": 0.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "46",
+      "prueba": "test_46_check_detections_rechaza_clase_caja_y_confianza",
+      "grupo": "Unitarias",
+      "tipo": "Unitaria",
+      "estado": "APROBADA",
+      "duracion_ms": 0.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "47",
+      "prueba": "test_47_draw_detections_no_modifica_original",
+      "grupo": "Unitarias",
+      "tipo": "Unitaria",
+      "estado": "APROBADA",
+      "duracion_ms": 1.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "48",
+      "prueba": "test_48_sha256_coincide_con_hashlib",
+      "grupo": "Unitarias",
+      "tipo": "Unitaria",
+      "estado": "APROBADA",
+      "duracion_ms": 11.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "49",
+      "prueba": "test_49_ubicacion_aproximada_en_cuadricula",
+      "grupo": "Unitarias",
+      "tipo": "Unitaria",
+      "estado": "APROBADA",
+      "duracion_ms": 0.1,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "50",
+      "prueba": "test_50_validacion_nombre_usuario",
+      "grupo": "Unitarias",
+      "tipo": "Unitaria",
+      "estado": "APROBADA",
+      "duracion_ms": 0.1,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "51",
+      "prueba": "test_51_contrasena_generada_cumple_politica",
+      "grupo": "Unitarias",
+      "tipo": "Unitaria",
+      "estado": "APROBADA",
+      "duracion_ms": 1.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "52",
+      "prueba": "test_52_hash_y_verificacion",
+      "grupo": "Unitarias",
+      "tipo": "Unitaria",
+      "estado": "APROBADA",
+      "duracion_ms": 1.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "53",
+      "prueba": "test_53_nombre_visible",
+      "grupo": "Unitarias",
+      "tipo": "Unitaria",
+      "estado": "APROBADA",
+      "duracion_ms": 0.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "54",
+      "prueba": "test_54_metricas_con_encabezados_con_espacios",
+      "grupo": "Unitarias",
+      "tipo": "Unitaria",
+      "estado": "APROBADA",
+      "duracion_ms": 2.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "55",
+      "prueba": "test_55_descripciones_cubren_todas_las_clases",
+      "grupo": "Unitarias",
+      "tipo": "Unitaria",
+      "estado": "APROBADA",
+      "duracion_ms": 0.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "56",
+      "prueba": "test_56_informe_json_es_utf8_legible",
+      "grupo": "Unitarias",
+      "tipo": "Unitaria",
+      "estado": "APROBADA",
+      "duracion_ms": 0.1,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "57",
+      "prueba": "test_57_carga_real_mas_yolo_real",
+      "grupo": "Integración",
+      "tipo": "Integración",
+      "estado": "APROBADA",
+      "duracion_ms": 45.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "58",
+      "prueba": "test_58_clases_del_modelo_coinciden_con_protocolo",
+      "grupo": "Integración",
+      "tipo": "Integración",
+      "estado": "APROBADA",
+      "duracion_ms": 0.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "59",
+      "prueba": "test_59_calibracion_del_admin_se_aplica_al_detector",
+      "grupo": "Integración",
+      "tipo": "Integración",
+      "estado": "APROBADA",
+      "duracion_ms": 173.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "60",
+      "prueba": "test_60_flujo_completo_hasta_historial",
+      "grupo": "Integración",
+      "tipo": "Integración",
+      "estado": "APROBADA",
+      "duracion_ms": 875.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "61",
+      "prueba": "test_61_csv_del_informe_coincide_con_salida_del_modelo",
+      "grupo": "Integración",
+      "tipo": "Integración",
+      "estado": "APROBADA",
+      "duracion_ms": 45.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "62",
+      "prueba": "test_62_registro_tecnico_y_exportacion_core_con_modelo_real",
+      "grupo": "Integración",
+      "tipo": "Integración",
+      "estado": "APROBADA",
+      "duracion_ms": 56.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "63",
+      "prueba": "test_63_pantalla_de_acceso_sin_contenido_protegido",
+      "grupo": "Sistema",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1547.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "64",
+      "prueba": "test_64_acceso_incorrecto_y_correcto",
+      "grupo": "Sistema",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 2966.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "65",
+      "prueba": "test_65_navegacion_por_rol",
+      "grupo": "Sistema",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 2843.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "66",
+      "prueba": "test_66_cambio_de_contrasena_obligatorio",
+      "grupo": "Sistema",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1959.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "67",
+      "prueba": "test_67_perfil_obligatorio_para_usuario",
+      "grupo": "Sistema",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1958.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "68",
+      "prueba": "test_68_cierre_de_sesion_por_inactividad",
+      "grupo": "Sistema",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1486.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "69",
+      "prueba": "test_69_admin_crea_usuario_desde_formulario",
+      "grupo": "Sistema",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 2084.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "70",
+      "prueba": "test_70_calibracion_del_admin_y_vista_de_usuario_sin_parametros",
+      "grupo": "Sistema",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 2129.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "71",
+      "prueba": "test_71_CA05_carga_valida_e_invalidas_rechazadas_con_causa",
+      "grupo": "Aceptación",
+      "tipo": "Aceptación",
+      "estado": "APROBADA",
+      "duracion_ms": 152.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "72",
+      "prueba": "test_72_CA06_detecciones_mostradas_igual_a_salida_almacenada",
+      "grupo": "Aceptación",
+      "tipo": "Aceptación",
+      "estado": "APROBADA",
+      "duracion_ms": 2252.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "73",
+      "prueba": "test_73_CA07_pendiente_hasta_validar_y_registro_sin_sobrescribir",
+      "grupo": "Aceptación",
+      "tipo": "Aceptación",
+      "estado": "APROBADA",
+      "duracion_ms": 45.2,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "74",
+      "prueba": "test_74_CA08_informe_coincide_con_revision_y_sin_datos_identificables",
+      "grupo": "Aceptación",
+      "tipo": "Aceptación",
+      "estado": "APROBADA",
+      "duracion_ms": 44.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "75",
+      "prueba": "test_75_RNF04_cien_por_ciento_de_pruebas_de_roles",
+      "grupo": "Aceptación",
+      "tipo": "Aceptación",
+      "estado": "APROBADA",
+      "duracion_ms": 2986.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "76",
+      "prueba": "test_76_RNF05_pantallas_e_informes_indican_apoyo_experimental",
+      "grupo": "Aceptación",
+      "tipo": "Aceptación",
+      "estado": "APROBADA",
+      "duracion_ms": 1594.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "77",
+      "prueba": "test_77_cliente_informe_identifica_profesional_e_historial_por_estado",
+      "grupo": "Aceptación",
+      "tipo": "Aceptación",
+      "estado": "APROBADA",
+      "duracion_ms": 269.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "78",
+      "prueba": "test_78_cliente_usuario_no_cambia_calibracion_ni_cop",
+      "grupo": "Aceptación",
+      "tipo": "Aceptación",
+      "estado": "APROBADA",
+      "duracion_ms": 1673.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "79",
+      "prueba": "test_79_modulos_y_dependencias_importan",
+      "grupo": "Humo",
+      "tipo": "Humo",
+      "estado": "APROBADA",
+      "duracion_ms": 1.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "80",
+      "prueba": "test_80_modelo_presente_carga_y_predice",
+      "grupo": "Humo",
+      "tipo": "Humo",
+      "estado": "APROBADA",
+      "duracion_ms": 153.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "81",
+      "prueba": "test_81_configuracion_valida",
+      "grupo": "Humo",
+      "tipo": "Humo",
+      "estado": "APROBADA",
+      "duracion_ms": 1.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "82",
+      "prueba": "test_82_servidor_arranca_y_responde",
+      "grupo": "Humo",
+      "tipo": "Humo",
+      "estado": "APROBADA",
+      "duracion_ms": 2008.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "83",
+      "prueba": "test_83_inferencia_p95_menor_a_100_ms",
+      "grupo": "Rendimiento",
+      "tipo": "Rendimiento",
+      "estado": "APROBADA",
+      "duracion_ms": 3703.2,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "84",
+      "prueba": "test_84_carga_a_visualizacion_p95_menor_a_3_s",
+      "grupo": "Rendimiento",
+      "tipo": "Rendimiento",
+      "estado": "APROBADA",
+      "duracion_ms": 4611.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "85",
+      "prueba": "test_85_generacion_de_informe_p95_menor_a_1_s",
+      "grupo": "Rendimiento",
+      "tipo": "Rendimiento",
+      "estado": "APROBADA",
+      "duracion_ms": 2007.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "86",
+      "prueba": "test_86_inicio_de_sesion_seguro_y_usable",
+      "grupo": "Rendimiento",
+      "tipo": "Rendimiento",
+      "estado": "APROBADA",
+      "duracion_ms": 3962.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "87",
+      "prueba": "test_87_usuario_no_accede_a_paginas_de_administrador",
+      "grupo": "Seguridad de la aplicación",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 2090.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "88",
+      "prueba": "test_88_xss_en_historial_se_escapa",
+      "grupo": "Seguridad de la aplicación",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 1818.2,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "89",
+      "prueba": "test_89_recorrido_de_rutas_bloqueado",
+      "grupo": "Seguridad de la aplicación",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 14.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "90",
+      "prueba": "test_90_configuracion_endurecida_del_servidor",
+      "grupo": "Seguridad de la aplicación",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 16.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "91",
+      "prueba": "test_91_bomba_de_descompresion_rechazada",
+      "grupo": "Seguridad de la aplicación",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 48.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "92",
+      "prueba": "test_92_tiempo_no_revela_si_el_usuario_existe",
+      "grupo": "Seguridad de la aplicación",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 2719.1,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "93",
+      "prueba": "test_93_csv_neutraliza_inyeccion_de_formulas",
+      "grupo": "Seguridad de la aplicación",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 13.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "94",
+      "prueba": "test_94_registros_sin_secretos_ni_rutas_locales",
+      "grupo": "Seguridad de la aplicación",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 1223.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "95",
+      "prueba": "test_95_contraste_wcag_aa_en_claro_y_oscuro",
+      "grupo": "Usabilidad y accesibilidad",
+      "tipo": "Usabilidad",
+      "estado": "APROBADA",
+      "duracion_ms": 1073.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "96",
+      "prueba": "test_96_todos_los_campos_tienen_etiqueta_visible",
+      "grupo": "Usabilidad y accesibilidad",
+      "tipo": "Usabilidad",
+      "estado": "APROBADA",
+      "duracion_ms": 2598.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "97",
+      "prueba": "test_97_mensajes_de_error_claros_y_en_espanol",
+      "grupo": "Usabilidad y accesibilidad",
+      "tipo": "Usabilidad",
+      "estado": "APROBADA",
+      "duracion_ms": 2209.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "98",
+      "prueba": "test_98_objetivos_tactiles_foco_movimiento_e_idioma",
+      "grupo": "Usabilidad y accesibilidad",
+      "tipo": "Usabilidad",
+      "estado": "APROBADA",
+      "duracion_ms": 1095.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "99",
+      "prueba": "test_99_flujo_de_analisis_sin_pasos_innecesarios",
+      "grupo": "Usabilidad y accesibilidad",
+      "tipo": "Usabilidad",
+      "estado": "APROBADA",
+      "duracion_ms": 1480.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "100",
+      "prueba": "test_100_estados_vacios_con_guia",
+      "grupo": "Usabilidad y accesibilidad",
+      "tipo": "Usabilidad",
+      "estado": "APROBADA",
+      "duracion_ms": 1666.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "101",
+      "prueba": "test_101_sin_instalaciones_automaticas_en_ejecucion",
+      "grupo": "Seguridad de la aplicación",
+      "tipo": "Seguridad",
+      "estado": "APROBADA",
+      "duracion_ms": 14.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "102",
+      "prueba": "test_102_metricas_con_resultado_conocido",
+      "grupo": "Funciones que completan el MVP",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 1.1,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "103",
+      "prueba": "test_103_ap_y_map_perfectos_y_denominador_cero",
+      "grupo": "Funciones que completan el MVP",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 0.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "104",
+      "prueba": "test_104_iou_y_etiquetas_yolo",
+      "grupo": "Funciones que completan el MVP",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 0.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "105",
+      "prueba": "test_105_CA09_recalculo_desde_predicciones_guardadas",
+      "grupo": "Funciones que completan el MVP",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 88.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "106",
+      "prueba": "test_106_zip_de_prueba_inseguro_rechazado",
+      "grupo": "Funciones que completan el MVP",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 1.0,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "107",
+      "prueba": "test_107_lote_sin_metadatos_y_con_nombres_codificados",
+      "grupo": "Funciones que completan el MVP",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 2.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "108",
+      "prueba": "test_108_manifiesto_del_lote_pasa_la_auditoria",
+      "grupo": "Funciones que completan el MVP",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 4.2,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "109",
+      "prueba": "test_109_kappa_ponderado",
+      "grupo": "Funciones que completan el MVP",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 0.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "110",
+      "prueba": "test_110_respaldo_y_restauracion_con_huellas",
+      "grupo": "Funciones que completan el MVP",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 776.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "111",
+      "prueba": "test_111_respaldo_alterado_se_rechaza_sin_tocar_datos",
+      "grupo": "Funciones que completan el MVP",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 6.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "112",
+      "prueba": "test_112_respaldo_diario_automatico_conserva_siete",
+      "grupo": "Funciones que completan el MVP",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 16.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "113",
+      "prueba": "test_113_correccion_conserva_original_y_valida_cajas",
+      "grupo": "Funciones que completan el MVP",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 43.2,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "114",
+      "prueba": "test_114_paginas_nuevas_del_administrador_cargan",
+      "grupo": "Sistema (funciones del MVP)",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1901.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "115",
+      "prueba": "test_115_respaldo_diario_automatico_al_abrir_estado",
+      "grupo": "Sistema (funciones del MVP)",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1527.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "116",
+      "prueba": "test_116_crear_respaldo_desde_la_pagina",
+      "grupo": "Sistema (funciones del MVP)",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1692.7,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "117",
+      "prueba": "test_117_historial_muestra_no_evaluables",
+      "grupo": "Sistema (funciones del MVP)",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1677.2,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "118",
+      "prueba": "test_118_arranque_en_la_nube_crea_administrador_desde_secrets",
+      "grupo": "Sistema (funciones del MVP)",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1887.4,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "119",
+      "prueba": "test_119_correccion_desde_el_editor",
+      "grupo": "Sistema (funciones del MVP)",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1142.5,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "120",
+      "prueba": "test_120_registro_no_evaluable_sin_inferencia",
+      "grupo": "Sistema (funciones del MVP)",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1134.3,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "121",
+      "prueba": "test_121_informe_de_caso_corregido",
+      "grupo": "Sistema (funciones del MVP)",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1165.6,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "122",
+      "prueba": "test_122_auditoria_de_proteccion_de_datos",
+      "grupo": "Protección de datos y secretos",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 584.9,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "123",
+      "prueba": "test_123_repositorio_sin_secretos",
+      "grupo": "Protección de datos y secretos",
+      "tipo": "Funcional (MVP completo)",
+      "estado": "APROBADA",
+      "duracion_ms": 82.8,
+      "detalle": "",
+      "traza": ""
+    },
+    {
+      "id": "124",
+      "prueba": "test_124_descarga_del_modelo_verificada_por_huella",
+      "grupo": "Sistema (despliegue en la nube)",
+      "tipo": "Sistema",
+      "estado": "APROBADA",
+      "duracion_ms": 1152.3,
+      "detalle": "",
+      "traza": ""
+    }
+  ],
+  "source_sha256": {
+    "app.py": "e193b72d5b2ef2dad87afd577b9a52c56dbe300d563beb1e34d5fd498f1c015a",
+    "auth.py": "1f721919bca923aff357b46f319eb7fd90cbf3f7b31a22f1457e512fab0b439e",
+    "calcular_indicadores.py": "49144f253db50c07c8eb7e44f491a767810411cb6dcbc9ebde87f7b55916bc6a",
+    "core.py": "0fb159d22064f8983aaf2d0b76579f92f497005ecff380212a438c5dcd68c2b4",
+    "crear_usuarios.py": "a914ef52dc13ec458fe43745fc06b1821948ba71a5c5d6e6425614fd5d706bf9",
+    "datos.py": "262b0ee422d11400a24b3001a17f94770918905c5c9411ab2861a33fe00c98df",
+    "ejecutar_pruebas_qa.py": "b9836df6396637aa4dcc83b747824a517967ebc679323e966dee898d40bcb4f6",
+    "evaluacion.py": "0305f3c28d24cdc6782c52cb2cd777ea7a334252d13d14036b4e98ca112ba4b5",
+    "informe.py": "bc92478036b8f41821f1854434fa8366f85d85e45e2183c75ca56406a3cf8639",
+    "metrics_csv.py": "4843e4f3594a4c1974d7d4da55f4b2fecff5a996193221d1421813a5aab65a94"
+  }
+}
