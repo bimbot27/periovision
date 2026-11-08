@@ -1,0 +1,6 @@
+participante,tarea_n,tarea,completada_sin_ayuda,errores,tiempo_s,observaciones
+P01,1,Iniciar sesion y completar el perfil,,,,
+P01,2,Cargar y analizar una radiografia,,,,
+P01,3,Corregir un hallazgo y registrar la revision,,,,
+P01,4,Descargar el informe PDF,,,,
+P01,5,Encontrar el caso en el historial,,,,

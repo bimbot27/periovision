@@ -1,0 +1,28 @@
+{
+  "fecha": "2026-11-08",
+  "regla": "Un requisito cuenta para I12 si tiene al menos una prueba ejecutada y su evidencia en el repositorio. La aceptación externa se registra aparte.",
+  "requisitos": [
+    {"id": "RF01", "historia": "HU01", "pruebas": "33, 37, 65, 75, 87", "evidencia": "log QA; auditoria.jsonl", "estado": "Verificado", "nota": "Roles reducidos a administrador y usuario por pedido del cliente (cambio de alcance a registrar)"},
+    {"id": "RF02", "historia": "HU01", "pruebas": "107, 108", "evidencia": "log QA; página Datos", "estado": "Verificado", "nota": "Texto impreso en píxeles requiere revisión visual"},
+    {"id": "RF03", "historia": "HU02", "pruebas": "20–23, 108", "evidencia": "log QA; página Datos", "estado": "Verificado", "nota": "Inventario real pendiente"},
+    {"id": "RF04", "historia": "HU02", "pruebas": "109", "evidencia": "log QA; instrumentos/etiquetas_lectores_I09.csv", "estado": "Parcial", "nota": "Herramienta de kappa probada; acta de consenso clínico pendiente"},
+    {"id": "RF05", "historia": "HU03", "pruebas": "01–06, 71, 117, 120", "evidencia": "log QA; E2E pasos 3–4", "estado": "Verificado", "nota": ""},
+    {"id": "RF06", "historia": "HU04", "pruebas": "57, 58, 61, 72", "evidencia": "log QA; E2E paso 4", "estado": "Verificado", "nota": ""},
+    {"id": "RF07", "historia": "HU05", "pruebas": "12–15, 73, 113, 119, 121", "evidencia": "log QA; E2E paso 6", "estado": "Verificado", "nota": ""},
+    {"id": "RF08", "historia": "HU06", "pruebas": "16–17, 42–44, 74, 93", "evidencia": "log QA; E2E pasos 6–7", "estado": "Verificado", "nota": ""},
+    {"id": "RF09", "historia": "HU07", "pruebas": "25–30, 102–106", "evidencia": "log QA; página Evaluación del modelo", "estado": "Verificado", "nota": "Ejecución sobre la prueba congelada pendiente de datos"},
+    {"id": "RF10", "historia": "HU08", "pruebas": "Ejecutor QA (121+ pruebas)", "evidencia": "evidencias/trazabilidad.md; indicadores.json; git", "estado": "Verificado", "nota": "Costos y actas EDT a cargo de coordinación"},
+    {"id": "RNF01", "historia": "—", "pruebas": "102–105 (herramienta)", "evidencia": "indicadores.json", "estado": "Medido, no cumple", "nota": "Validación: I01–I06 bajo la meta; prueba congelada pendiente"},
+    {"id": "RNF02", "historia": "—", "pruebas": "83–86", "evidencia": "rendimiento.json; E2E paso 4", "estado": "Verificado", "nota": ""},
+    {"id": "RNF03", "historia": "—", "pruebas": "95–100", "evidencia": "log QA; instrumentos/ficha_tareas_I10.csv", "estado": "Parcial", "nota": "Piloto con 3 usuarios pendiente"},
+    {"id": "RNF04", "historia": "—", "pruebas": "31–40, 87–94, 101, 122, 123", "evidencia": "log QA; auditoria_dependencias.json", "estado": "Verificado", "nota": "Clave de Roboflow expuesta en el notebook: revocar"},
+    {"id": "RNF05", "historia": "—", "pruebas": "24, 76", "evidencia": "log QA", "estado": "Verificado", "nota": ""},
+    {"id": "RNF06", "historia": "—", "pruebas": "105", "evidencia": "requirements.txt fijado; git v1.2.0; huella de best.pt", "estado": "Verificado", "nota": "Semilla y data.yaml del entrenamiento pendientes"},
+    {"id": "RNF07", "historia": "—", "pruebas": "110–112, 115, 116", "evidencia": "log QA; página Respaldos", "estado": "Verificado", "nota": ""},
+    {"id": "RNF08", "historia": "—", "pruebas": "SQA (ruff, radon)", "evidencia": "revision_sqa.md; validacion_tecnica.md", "estado": "Verificado", "nota": "Deuda técnica DT-01 registrada"},
+    {"id": "RNF09", "historia": "—", "pruebas": "03, 10, 11, 101", "evidencia": "log QA", "estado": "Verificado", "nota": ""},
+    {"id": "RNF10", "historia": "—", "pruebas": "82, 90, 118", "evidencia": "DESPLIEGUE.md; validacion_tecnica.md", "estado": "Verificado", "nota": "Uso en nube solo con datos de demostración"}
+  ],
+  "total": 20,
+  "con_prueba_y_evidencia": 20
+}

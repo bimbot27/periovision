@@ -1,0 +1,151 @@
+{
+  "fecha": "2026-11-08T01:41-05:00",
+  "indicadores": [
+    {
+      "id": "I01",
+      "indicador": "Precisión",
+      "linea_base": "52,69 % histórica",
+      "valor_actual": 52.7,
+      "meta": "≥ 65 %",
+      "estado": "No cumple",
+      "fuente": "Validación del notebook (registro B, 60 imágenes, 99 regiones); prueba congelada pendiente",
+      "unidad": "%"
+    },
+    {
+      "id": "I02",
+      "indicador": "Sensibilidad",
+      "linea_base": "58,40 % histórica",
+      "valor_actual": 58.4,
+      "meta": "≥ 70 %",
+      "estado": "No cumple",
+      "fuente": "Validación del notebook (registro B, 60 imágenes, 99 regiones); prueba congelada pendiente",
+      "unidad": "%"
+    },
+    {
+      "id": "I03",
+      "indicador": "Sensibilidad Stage 1",
+      "linea_base": "No calculable",
+      "valor_actual": 41.2,
+      "meta": "≥ 75 %",
+      "estado": "No cumple",
+      "fuente": "Validación del notebook (registro B, 60 imágenes, 99 regiones); prueba congelada pendiente; VP ≈ 7, FN ≈ 10, IC95 % Wilson 22–64 %",
+      "unidad": "%"
+    },
+    {
+      "id": "I04",
+      "indicador": "F1",
+      "linea_base": "55,40 % histórica",
+      "valor_actual": 55.4,
+      "meta": "≥ 67 %",
+      "estado": "No cumple",
+      "fuente": "Validación del notebook (registro B, 60 imágenes, 99 regiones); prueba congelada pendiente; media armónica de P y R agregadas",
+      "unidad": "%"
+    },
+    {
+      "id": "I05",
+      "indicador": "mAP@0.5",
+      "linea_base": "54,83 % histórica",
+      "valor_actual": 54.8,
+      "meta": "≥ 65 %",
+      "estado": "No cumple",
+      "fuente": "Validación del notebook (registro B, 60 imágenes, 99 regiones); prueba congelada pendiente",
+      "unidad": "%"
+    },
+    {
+      "id": "I06",
+      "indicador": "mAP@0.5:0.95",
+      "linea_base": "38,00 % histórica",
+      "valor_actual": 37.9,
+      "meta": "≥ 45 %",
+      "estado": "No cumple",
+      "fuente": "Validación del notebook (registro B, 60 imágenes, 99 regiones); prueba congelada pendiente",
+      "unidad": "%"
+    },
+    {
+      "id": "I07",
+      "indicador": "Latencia p95 (inferencia · carga a visualización)",
+      "linea_base": "9,8 ms históricos, entorno no conciliado",
+      "valor_actual": "36.2 ms · 55.3 ms",
+      "meta": "≤ 100 ms · ≤ 3 000 ms",
+      "estado": "Cumple",
+      "fuente": "evidencias/rendimiento.json (100 ejecuciones, CPU)",
+      "unidad": "ms"
+    },
+    {
+      "id": "I08",
+      "indicador": "Reducción del tiempo de revisión",
+      "linea_base": "No medida",
+      "valor_actual": null,
+      "meta": "≥ 20 %",
+      "estado": "Pendiente",
+      "fuente": "instrumentos/ficha_tiempos_I08.csv (sin registros: piloto pendiente)",
+      "unidad": "%"
+    },
+    {
+      "id": "I09",
+      "indicador": "Kappa ponderado entre lectores",
+      "linea_base": "No medido",
+      "valor_actual": null,
+      "meta": "≥ 0,70",
+      "estado": "Pendiente",
+      "fuente": "instrumentos/etiquetas_lectores_I09.csv (sin registros: doble lectura pendiente)",
+      "unidad": ""
+    },
+    {
+      "id": "I10",
+      "indicador": "Tareas completadas sin ayuda",
+      "linea_base": "No medido",
+      "valor_actual": null,
+      "meta": "≥ 90 % (3 usuarios × 5 tareas)",
+      "estado": "Pendiente",
+      "fuente": "instrumentos/ficha_tareas_I10.csv (sin registros: piloto pendiente)",
+      "unidad": "%"
+    },
+    {
+      "id": "I11",
+      "indicador": "Protección de datos",
+      "linea_base": "No auditada",
+      "valor_actual": 100.0,
+      "meta": "100 %",
+      "estado": "Cumple",
+      "fuente": "Auditoría de 7 archivos de datos/ + pruebas 31–40, 87–94, 101, 122–123",
+      "unidad": "%"
+    },
+    {
+      "id": "I12",
+      "indicador": "Trazabilidad",
+      "linea_base": "Catálogo definido; ejecución pendiente",
+      "valor_actual": 100.0,
+      "meta": "100 %",
+      "estado": "Cumple",
+      "fuente": "evidencias/trazabilidad.md",
+      "unidad": "%"
+    },
+    {
+      "id": "I13",
+      "indicador": "Avance EDT (paquetes aceptados)",
+      "linea_base": "Pendiente de acta",
+      "valor_actual": null,
+      "meta": "100 % al cierre",
+      "estado": "Pendiente",
+      "fuente": "Requiere actas de aceptación del equipo; no se calcula con pruebas aprobadas",
+      "unidad": "%"
+    },
+    {
+      "id": "I14",
+      "indicador": "Desviación presupuestal",
+      "linea_base": "S/ 23 408 línea base",
+      "valor_actual": null,
+      "meta": "≤ 0 %",
+      "estado": "Pendiente",
+      "fuente": "Requiere gastos ejecutados del coordinador",
+      "unidad": "%"
+    }
+  ],
+  "pruebas": {
+    "total": 121,
+    "aprobadas": 121,
+    "dictamen": "APTA"
+  },
+  "evaluacion_prueba_congelada": "Pendiente: cargar el .zip de prueba en Evaluación del modelo"
+}
