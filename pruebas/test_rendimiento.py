@@ -38,6 +38,8 @@ class RendimientoTests(unittest.TestCase):
         (ROOT / "evidencias").mkdir(exist_ok=True)
         (ROOT / "evidencias" / "rendimiento.json").write_text(json.dumps(RESULTS, indent=2, ensure_ascii=False), encoding="utf-8")
 
+    @unittest.skipIf(os.environ.get("PERIOVISION_REFERENCIA") == "0",
+                     "RNF02 se mide en el equipo de referencia; este entorno (CI o nube) no lo es")
     def test_83_inferencia_p95_menor_a_100_ms(self):
         case = Case(SAMPLE, "PERF"); image = case.image
         times = []

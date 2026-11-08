@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-08T01:52-05:00",
+  "fecha": "2026-11-08T03:11-05:00",
   "indicadores": [
     {
       "id": "I01",
@@ -65,7 +65,7 @@
       "id": "I07",
       "indicador": "Latencia p95 (inferencia · carga a visualización)",
       "linea_base": "9,8 ms históricos, entorno no conciliado",
-      "valor_actual": "34.9 ms · 47.5 ms",
+      "valor_actual": "34.8 ms · 49.9 ms",
       "meta": "≤ 100 ms · ≤ 3 000 ms",
       "estado": "Cumple",
       "fuente": "evidencias/rendimiento.json (100 ejecuciones, CPU)",
@@ -108,7 +108,7 @@
       "valor_actual": 100.0,
       "meta": "100 %",
       "estado": "Cumple",
-      "fuente": "Auditoría de 7 archivos de datos/ + pruebas 31–40, 87–94, 101, 122–123",
+      "fuente": "Auditoría de 12 archivos de datos/ + pruebas 31–40, 87–94, 101, 122–123",
       "unidad": "%"
     },
     {
