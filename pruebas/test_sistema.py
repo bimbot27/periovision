@@ -1,5 +1,7 @@
 """Pruebas de SISTEMA 63-70: la aplicación Streamlit completa (app.py) ejecutada con AppTest."""
 import json
+
+import core
 import time
 import unittest
 
@@ -23,7 +25,7 @@ class SistemaTests(unittest.TestCase):
         at = app_test().run()
         self.assertEqual([t.label for t in at.text_input], ["Usuario", "Contraseña"])
         self.assertEqual(list(pages(at).values()), ["Iniciar sesión"])
-        self.assertTrue(any("periovision-1.0.0" in m.value for m in at.markdown))
+        self.assertTrue(any(core.VERSION in m.value for m in at.markdown))
         self.assertFalse(at.exception)
 
     def test_64_acceso_incorrecto_y_correcto(self):

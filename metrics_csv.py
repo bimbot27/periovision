@@ -31,7 +31,7 @@ def summarize(path):
                          'harmonic_precision_recall': 2 * precision * recall / (precision + recall) if precision + recall else None})
     if not rows:
         raise ValueError('Serie vacía.')
-    if any(b['epoch'] <= a['epoch'] for a, b in zip(rows, rows[1:])):
+    if any(b['epoch'] <= a['epoch'] for a, b in zip(rows, rows[1:], strict=False)):
         raise ValueError('Las épocas deben estar ordenadas y no repetirse.')
     return {'file_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'rows': len(rows), 'last_epoch': rows[-1],

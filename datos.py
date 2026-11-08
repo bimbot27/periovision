@@ -178,3 +178,39 @@ def auto_backup(data_dir: str | Path, keep: int = 7, max_age_h: float = 24) -> P
     for old in sorted(folder.glob("respaldo_*.zip"))[:-keep]:
         old.unlink()
     return path
+
+
+# ─────────────────────────────── protección de datos (I11) ───────────────────────────────
+PATH_HINT = re.compile(r"[A-Za-z]:\\|[A-Za-z]:/|/Users/|/home/|\\Users\\\\")
+
+
+def audit_data_protection(data_dir: str | Path) -> dict:
+    """Revisa cada archivo de datos (I11 = archivos conformes / archivos revisados × 100).
+
+    Reglas: contraseñas solo como hash PBKDF2; imágenes archivadas sin metadatos; informes y
+    registros sin rutas locales; auditoría sin campos de contraseña.
+    """
+    data_dir = Path(data_dir)
+    reviewed, issues = 0, []
+    users = data_dir / "usuarios.json"
+    if users.exists():
+        reviewed += 1
+        for name, u in json.loads(users.read_text(encoding="utf-8")).items():
+            if u.get("password", {}).get("algorithm") != "pbkdf2_sha256" or "plain" in json.dumps(u):
+                issues.append(f"usuarios.json: {name} sin hash válido")
+    audit = data_dir / "auditoria.jsonl"
+    if audit.exists():
+        reviewed += 1
+        if re.search(r'"(password|contrasena|clave)"\s*:', audit.read_text(encoding="utf-8")):
+            issues.append("auditoria.jsonl: contiene un campo de contraseña")
+    for f in sorted((data_dir / "casos").rglob("*")) if (data_dir / "casos").exists() else []:
+        if not f.is_file():
+            continue
+        reviewed += 1
+        if f.suffix == ".png" and has_metadata(f.read_bytes()):
+            issues.append(f"{f.relative_to(data_dir).as_posix()}: imagen con metadatos")
+        elif f.suffix in (".json", ".csv") and PATH_HINT.search(f.read_text(encoding="utf-8-sig")):
+            issues.append(f"{f.relative_to(data_dir).as_posix()}: contiene una ruta local")
+    bad = len({i.split(":")[0] for i in issues})
+    return {"revisados": reviewed, "conformes": reviewed - bad, "problemas": issues,
+            "indicador_I11": round((reviewed - bad) / reviewed * 100, 1) if reviewed else None}

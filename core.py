@@ -7,7 +7,6 @@ from pathlib import Path
 import csv
 import hashlib
 import importlib.metadata
-import io
 import json
 import math
 import os
@@ -20,7 +19,7 @@ from PIL import Image, ImageDraw
 os.environ.setdefault('YOLO_AUTOINSTALL', 'false')
 os.environ.setdefault('YOLO_OFFLINE', 'true')
 
-VERSION = 'periovision-1.0.0'
+VERSION = 'periovision-1.2.0'
 MAX_BYTES = 20 * 1024 * 1024
 MAX_PIXELS = 20_000_000
 LABELS = ('Normal', 'Stage 1', 'Stage 2', 'Stage 3')
@@ -235,7 +234,7 @@ class Case:
             for run_id, kind, b in records:
                 writer.writerow(dict(case_code=value['case_code'], status=value['status'], demo=value['demo'],
                                      run_id=run_id, record_type=kind, **{'class': b['class']},
-                                     confidence=b['confidence'], **dict(zip(('x1','y1','x2','y2'), b['box']))))
+                                     confidence=b['confidence'], **dict(zip(('x1','y1','x2','y2'), b['box'], strict=True))))
         return json_path, csv_path
 
 COLORS = {'Normal': '#34C759', 'Stage 1': '#FFCC00', 'Stage 2': '#FF9500', 'Stage 3': '#FF3B30', 'DEMO': '#007AFF'}

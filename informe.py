@@ -217,8 +217,8 @@ def report_pdf(report: dict, annotated: Image.Image) -> bytes:
     img.thumbnail((W - 2 * M, 560))
     page.paste(img, ((W - img.width) // 2, y)); y += img.height + 30
     d.text((M, y), "Resumen", font=f_h, fill=ink); y += 36
-    for l in _wrap(d, report["resumen"], f_b, W - 2 * M):
-        d.text((M, y), l, font=f_b, fill=ink); y += 30
+    for line_ in _wrap(d, report["resumen"], f_b, W - 2 * M):
+        d.text((M, y), line_, font=f_b, fill=ink); y += 30
     y += 16
     cols = [("N.º", 60), ("Clase", 130), ("Descripción", 400), ("Confianza", 130), ("Ubicación", 340)]
     d.rounded_rectangle((M, y, W - M, y + 40), 8, fill="#F2F2F7")
@@ -229,7 +229,7 @@ def report_pdf(report: dict, annotated: Image.Image) -> bytes:
     rows = report["hallazgos"] or [{"n": "—", "clase": "—", "descripcion": "Sin hallazgos", "confianza": "", "ubicacion": ""}]
     for f in rows[:10]:
         x = M + 14
-        for (key, wdt) in zip(("n", "clase", "descripcion", "confianza", "ubicacion"), [c[1] for c in cols]):
+        for (key, wdt) in zip(("n", "clase", "descripcion", "confianza", "ubicacion"), [c[1] for c in cols], strict=True):
             d.text((x, y), str(f[key]), font=f_s, fill=ink); x += wdt
         y += 32
         d.line((M, y - 4, W - M, y - 4), fill=line)
@@ -237,8 +237,8 @@ def report_pdf(report: dict, annotated: Image.Image) -> bytes:
         d.text((M, y), f"… y {len(rows) - 10} hallazgo(s) más en el CSV.", font=f_s, fill=grey); y += 30
     y += 18
     d.text((M, y), "Observaciones del profesional", font=f_h, fill=ink); y += 36
-    for l in _wrap(d, report["observaciones"], f_b, W - 2 * M)[:6]:
-        d.text((M, y), l, font=f_b, fill=ink); y += 30
+    for line_ in _wrap(d, report["observaciones"], f_b, W - 2 * M)[:6]:
+        d.text((M, y), line_, font=f_b, fill=ink); y += 30
     # Pie: firma y aviso
     fy = H - M - 170
     d.line((M, fy, M + 420, fy), fill=ink, width=2)
@@ -248,8 +248,8 @@ def report_pdf(report: dict, annotated: Image.Image) -> bytes:
     d.text((W - M, fy + 10), f"Umbral {par['umbral_confianza']} · {par['tamano_analisis']} · {par['version_aplicacion']}",
            font=f_s, fill=grey, anchor="ra")
     ay = fy + 90
-    for l in _wrap(d, report["aviso"], f_s, W - 2 * M):
-        d.text((M, ay), l, font=f_s, fill=grey); ay += 24
+    for line_ in _wrap(d, report["aviso"], f_s, W - 2 * M):
+        d.text((M, ay), line_, font=f_s, fill=grey); ay += 24
     buf = io.BytesIO()
     page.save(buf, format="PDF", resolution=150.0)
     return buf.getvalue()

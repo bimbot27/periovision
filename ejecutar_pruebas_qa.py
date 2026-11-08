@@ -44,7 +44,8 @@ GROUPS = [
     (95, 100, "Usabilidad y accesibilidad"),
     (101, 101, "Seguridad de la aplicación"),
     (102, 113, "Funciones que completan el MVP"),
-    (114, 199, "Sistema (funciones del MVP)"),
+    (114, 121, "Sistema (funciones del MVP)"),
+    (122, 123, "Protección de datos y secretos"),
 ]
 
 # Tipo de prueba por archivo (las documentadas 01-30 forman la batería de regresión).

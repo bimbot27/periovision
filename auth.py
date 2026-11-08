@@ -244,7 +244,7 @@ class UserStore:
             username = validate_username(username)
         except AuthError:
             verify_password(password or "", _DUMMY)
-            raise AuthError(GENERIC_ERROR)
+            raise AuthError(GENERIC_ERROR) from None
         with _lock:
             users = self._load()
             user = users.get(username)

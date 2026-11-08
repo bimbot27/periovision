@@ -121,8 +121,10 @@ def cloud_bootstrap() -> str:
         if len(expected) != 64:
             raise ProductError("Falta model_sha256 en los secrets: no se descargan pesos sin verificar su huella.")
         import urllib.request
+        if not str(cfg["model_url"]).startswith("https://"):
+            raise ProductError("model_url debe usar https:// (no se aceptan file:, http: ni otros esquemas).")
         tmp = MODEL_PATH.with_suffix(".descarga")
-        with urllib.request.urlopen(cfg["model_url"], timeout=120) as r, tmp.open("wb") as f:
+        with urllib.request.urlopen(cfg["model_url"], timeout=120) as r, tmp.open("wb") as f:  # noqa: S310 (esquema validado)
             shutil.copyfileobj(r, f)
         if core.sha256(tmp) != expected:
             tmp.unlink(missing_ok=True)
@@ -417,143 +419,166 @@ def reset_case() -> None:
     st.session_state["uploader"] = st.session_state.get("uploader", 0) + 1
 
 
+def load_upload(upload) -> "Case | None":
+    """Convierte el archivo subido en un caso (una vez por archivo) y muestra el rechazo si lo hay."""
+    if upload is None:
+        if st.session_state.get("case_digest"):
+            for k in ("case", "case_digest", "case_error", "saved_code"):
+                st.session_state.pop(k, None)
+        return None
+    data = upload.getvalue()
+    digest = hashlib.sha256(data).hexdigest()
+    if st.session_state.get("case_digest") != digest:
+        for k in ("case", "case_error", "saved_code"):
+            st.session_state.pop(k, None)
+        WORK.mkdir(parents=True, exist_ok=True)
+        suffix = Path(upload.name).suffix.lower()
+        tmp = WORK / f"in_{digest[:16]}{suffix if suffix in ('.png', '.jpg', '.jpeg') else '.bin'}"
+        tmp.write_bytes(data)
+        try:
+            st.session_state["case"] = Case(tmp, f"CASO_{datetime.now():%Y%m%d_%H%M%S}")
+        except ProductError as e:
+            st.session_state["case_error"] = str(e)
+        finally:
+            st.session_state["case_digest"] = digest
+            tmp.unlink(missing_ok=True)  # el registro no conserva la ruta ni el nombre original
+    if err := st.session_state.get("case_error"):
+        st.error(f"Imagen rechazada: {err}")
+    return st.session_state.get("case")
+
+
+def run_analysis(case: Case, user: dict) -> None:
+    try:
+        case.quality(True)  # confirmado por el usuario al pulsar Analizar
+        with st.spinner("Analizando imagen…"):
+            case.infer(detector())
+        st.session_state.pop("saved_code", None)
+        store.audit("analisis", user["usuario"], detail=case.data["case_code"])
+        st.rerun()
+    except ProductError as e:
+        st.error(str(e))
+    except Exception as e:  # fallo inesperado del motor: se conserva el registro
+        st.error(f"No se pudo procesar la imagen. Se conservan los registros anteriores. ({type(e).__name__})")
+
+
+def input_panel(case: Case | None, user: dict) -> None:
+    if not case:
+        return
+    w, h = case.image.size
+    st.image(case.image, caption=f"Original · {w} × {h} px · {case.data['case_code']}", width="stretch")
+    first = not case.data["runs"]
+    if st.button("Analizar radiografía" if first else "Volver a analizar", type="primary" if first else "secondary",
+                 width="stretch", icon=":material/radiology:"):
+        run_analysis(case, user)
+    st.caption("Al analizar confirmas que la imagen es nítida, completa y no muestra datos personales.")
+    if first and not st.session_state.get("saved_code"):
+        unevaluable_form(case, user)
+
+
+def new_case_button() -> None:
+    if st.button("Nuevo análisis", icon=":material/add_photo_alternate:", width="stretch"):
+        reset_case()
+        st.rerun()
+
+
+def result_panel(case: Case, last: dict) -> None:
+    items = last["original"]
+    sha = (last["model"].get("weights_sha256") or "")[:12]
+    st.image(draw_detections(case.image, items), width="stretch",
+             caption=f"Propuesta del modelo · {len(items)} hallazgo(s) · {core.VERSION} · modelo {sha}")
+    best = max((i["confidence"] for i in items), default=None)
+    tiles([("Hallazgos", str(len(items)), f"umbral {last['model'].get('confidence_threshold', 0):.0%}"),
+           ("Confianza máxima", f"{best:.0%}" if best is not None else "—", ""),
+           ("Tiempo", f"{last['elapsed_adapter_ms'] / 1000:.2f} s", f"{last['model'].get('imgsz', '')} px")])
+    if not items:
+        st.info("El modelo no encontró hallazgos sobre el umbral configurado. " + core.NOTICE)
+        return
+    from informe import DESCRIPTIONS, location
+    rows = [[str(n), f'<span class="pv-dot" style="background:{core.COLORS.get(i["class"], "#0071E3")}"></span>'
+             f'{esc(i["class"])}', DESCRIPTIONS.get(i["class"], ""), f'{i["confidence"]:.1%}',
+             location(i["box"], case.image.size)] for n, i in enumerate(items, 1)]
+    table(["#", "Clase", "Descripción", "Confianza", "Ubicación"], rows,
+          caption="Hallazgos propuestos por el modelo", raw_cols=(1,))
+
+
+def box_editor(case: Case, items: list[dict], run_id: str):
+    st.caption("Cambia la clase o las coordenadas, quita filas o agrega hallazgos que el modelo no vio. "
+               "La propuesta original se conserva.")
+    w, h = case.image.size
+
+    def coord(name: str, limit: int):
+        return st.column_config.NumberColumn(f"{name} (px)", min_value=0, max_value=limit, step=1, required=True)
+
+    return st.data_editor(
+        [{"Clase": i["class"], "x1": round(i["box"][0]), "y1": round(i["box"][1]),
+          "x2": round(i["box"][2]), "y2": round(i["box"][3])} for i in items],
+        num_rows="dynamic", width="stretch", key=f"editor_{run_id}",
+        column_config={"Clase": st.column_config.SelectboxColumn("Clase", options=list(core.LABELS), required=True),
+                       "x1": coord("x1", w), "y1": coord("y1", h), "x2": coord("x2", w), "y2": coord("y2", h)})
+
+
+def save_review(case: Case, user: dict, action: str, edited, obs: str) -> None:
+    items = case.data["runs"][-1]["original"]
+    try:
+        revised = corrected_items(edited, items) if action == "corregir" else None
+        case.review(action, user["usuario"].replace(".", "_"), revised)
+        report = build_report(case, user["usuario"], user["perfil"], obs)
+        archive.save(case, report, draw_detections(case.image, revised if revised is not None else items))
+        st.session_state["saved_code"] = report["codigo_caso"]
+        store.audit("revision", user["usuario"], detail=f"{report['codigo_caso']}:{report['resultado_validacion']}")
+    except ProductError as e:
+        st.error(str(e))
+
+
+def validation_panel(case: Case, last: dict, user: dict) -> None:
+    complete = profile_complete(user["perfil"], user["rol"])
+    if not complete:
+        st.warning("Completa tus datos profesionales (nombre, correo y N.º de COP) en **Mi cuenta** para validar.")
+    labels = {"aceptar": "Aprobar", "corregir": "Corregir hallazgos", "descartar": "Rechazar"}
+    action = st.radio("Resultado de tu revisión", list(labels), horizontal=True, key=f"accion_{last['run_id']}",
+                      format_func=labels.get)
+    with st.form("validacion", border=False):
+        edited = box_editor(case, last["original"], last["run_id"]) if action == "corregir" else None
+        obs = st.text_area("Observaciones (opcional)", max_chars=500, height=90,
+                           placeholder="Ej.: correlacionar con sondaje; control en 6 meses.")
+        send = st.form_submit_button("Registrar revisión", type="primary", width="stretch",
+                                     disabled=not complete, icon=":material/verified:")
+    if send:
+        save_review(case, user, action, edited, obs)
+    if code := st.session_state.get("saved_code"):
+        saved = next((r for r in archive.list() if r["codigo_caso"] == code), None)
+        if saved:
+            st.success(f"Revisión registrada: {saved['resultado_validacion']}. El informe quedó en el historial.")
+            downloads(code)
+        new_case_button()
+
+
 def analyze_page() -> None:
     user = refresh_user()
     header("Analizar radiografía")
     notice()
-
     left, right = st.columns([1, 1], gap="large")
     with left:
         section("1 · Radiografía")
         upload = st.file_uploader("Radiografía periapical (PNG o JPEG, máx. 20 MB)", type=["png", "jpg", "jpeg"],
                                   key=f"up_{st.session_state.get('uploader', 0)}")
-        case: Case | None = None
-        if upload is not None:
-            data = upload.getvalue()
-            digest = hashlib.sha256(data).hexdigest()
-            if st.session_state.get("case_digest") != digest:
-                for k in ("case", "case_error", "saved_code"):
-                    st.session_state.pop(k, None)
-                WORK.mkdir(parents=True, exist_ok=True)
-                suffix = Path(upload.name).suffix.lower()
-                tmp = WORK / f"in_{digest[:16]}{suffix if suffix in ('.png', '.jpg', '.jpeg') else '.bin'}"
-                tmp.write_bytes(data)
-                try:
-                    st.session_state["case"] = Case(tmp, f"CASO_{datetime.now():%Y%m%d_%H%M%S}")
-                except ProductError as e:
-                    st.session_state["case_error"] = str(e)
-                finally:
-                    st.session_state["case_digest"] = digest
-                    tmp.unlink(missing_ok=True)  # el registro no conserva la ruta ni el nombre original
-            if err := st.session_state.get("case_error"):
-                st.error(f"Imagen rechazada: {err}")
-            case = st.session_state.get("case")
-        elif st.session_state.get("case_digest"):
-            for k in ("case", "case_digest", "case_error", "saved_code"):
-                st.session_state.pop(k, None)
-
-        if case:
-            w, h = case.image.size
-            st.image(case.image, caption=f"Original · {w} × {h} px · {case.data['case_code']}",
-                     width="stretch")
-            first = not case.data["runs"]
-            if st.button("Analizar radiografía" if first else "Volver a analizar",
-                         type="primary" if first else "secondary", width="stretch",
-                         icon=":material/radiology:"):
-                try:
-                    case.quality(True)  # confirmado por el usuario al pulsar Analizar
-                    with st.spinner("Analizando imagen…"):
-                        case.infer(detector())
-                    st.session_state.pop("saved_code", None)
-                    store.audit("analisis", user["usuario"], detail=case.data["case_code"])
-                    st.rerun()
-                except ProductError as e:
-                    st.error(str(e))
-                except Exception as e:  # fallo inesperado del motor: se conserva el registro
-                    st.error(f"No se pudo procesar la imagen. Se conservan los registros anteriores. ({type(e).__name__})")
-            st.caption("Al analizar confirmas que la imagen es nítida, completa y no muestra datos personales.")
-            if first and not st.session_state.get("saved_code"):
-                unevaluable_form(case, user)
-
+        case = load_upload(upload)
+        input_panel(case, user)
     with right:
         section("2 · Resultado")
         if not case:
             card("Sube una radiografía para iniciar el análisis.")
-            return
-        if not case.data["runs"]:
-            if st.session_state.get("saved_code"):
-                st.success("Imagen registrada como no evaluable. El registro quedó en el historial.")
-                downloads(st.session_state["saved_code"])
-                if st.button("Nuevo análisis", icon=":material/add_photo_alternate:", width="stretch"):
-                    reset_case(); st.rerun()
-            else:
-                card("Pulsa «Analizar radiografía» para ver la propuesta del modelo.")
-            return
-        last = case.data["runs"][-1]
-        items = last["original"]
-        annotated = draw_detections(case.image, items)
-        st.image(annotated, width="stretch", caption=f"Propuesta del modelo · {len(items)} hallazgo(s) · "
-                                                    f"{core.VERSION} · modelo {(last['model'].get('weights_sha256') or '')[:12]}")
-        best = max((i["confidence"] for i in items), default=None)
-        tiles([("Hallazgos", str(len(items)), f"umbral {last['model'].get('confidence_threshold', 0):.0%}"),
-               ("Confianza máxima", f"{best:.0%}" if best is not None else "—", ""),
-               ("Tiempo", f"{last['elapsed_adapter_ms'] / 1000:.2f} s", f"{last['model'].get('imgsz', '')} px")])
-        if items:
-            from informe import DESCRIPTIONS, location
-            rows = [[str(n), f'<span class="pv-dot" style="background:{core.COLORS.get(i["class"], "#0071E3")}"></span>'
-                     f'{esc(i["class"])}', DESCRIPTIONS.get(i["class"], ""), f'{i["confidence"]:.1%}',
-                     location(i["box"], case.image.size)] for n, i in enumerate(items, 1)]
-            table(["#", "Clase", "Descripción", "Confianza", "Ubicación"], rows,
-                  caption="Hallazgos propuestos por el modelo", raw_cols=(1,))
+        elif not case.data["runs"] and st.session_state.get("saved_code"):
+            st.success("Imagen registrada como no evaluable. El registro quedó en el historial.")
+            downloads(st.session_state["saved_code"])
+            new_case_button()
+        elif not case.data["runs"]:
+            card("Pulsa «Analizar radiografía» para ver la propuesta del modelo.")
         else:
-            st.info("El modelo no encontró hallazgos sobre el umbral configurado. " + core.NOTICE)
-
-        section("3 · Validación")
-        complete = profile_complete(user["perfil"], user["rol"])
-        if not complete:
-            st.warning("Completa tus datos profesionales (nombre, correo y N.º de COP) en **Mi cuenta** para validar.")
-        action = st.radio("Resultado de tu revisión", ["aceptar", "corregir", "descartar"], horizontal=True,
-                          key=f"accion_{last['run_id']}",
-                          format_func=lambda a: {"aceptar": "Aprobar", "corregir": "Corregir hallazgos",
-                                                 "descartar": "Rechazar"}[a])
-        with st.form("validacion", border=False):
-            edited = None
-            if action == "corregir":
-                st.caption("Cambia la clase o las coordenadas, quita filas o agrega hallazgos que el modelo no vio. "
-                           "La propuesta original se conserva.")
-                w, h = case.image.size
-                edited = st.data_editor(
-                    [{"Clase": i["class"], "x1": round(i["box"][0]), "y1": round(i["box"][1]),
-                      "x2": round(i["box"][2]), "y2": round(i["box"][3])} for i in items],
-                    num_rows="dynamic", width="stretch", key=f"editor_{last['run_id']}",
-                    column_config={"Clase": st.column_config.SelectboxColumn("Clase", options=list(core.LABELS), required=True),
-                                   "x1": st.column_config.NumberColumn("x1 (px)", min_value=0, max_value=w, step=1, required=True),
-                                   "y1": st.column_config.NumberColumn("y1 (px)", min_value=0, max_value=h, step=1, required=True),
-                                   "x2": st.column_config.NumberColumn("x2 (px)", min_value=0, max_value=w, step=1, required=True),
-                                   "y2": st.column_config.NumberColumn("y2 (px)", min_value=0, max_value=h, step=1, required=True)})
-            obs = st.text_area("Observaciones (opcional)", max_chars=500, height=90,
-                               placeholder="Ej.: correlacionar con sondaje; control en 6 meses.")
-            send = st.form_submit_button("Registrar revisión", type="primary", width="stretch",
-                                         disabled=not complete, icon=":material/verified:")
-        if send:
-            try:
-                revised = None
-                if action == "corregir":
-                    revised = corrected_items(edited, items)
-                case.review(action, user["usuario"].replace(".", "_"), revised)
-                report = build_report(case, user["usuario"], user["perfil"], obs)
-                archive.save(case, report, draw_detections(case.image, revised) if revised is not None else annotated)
-                st.session_state["saved_code"] = report["codigo_caso"]
-                store.audit("revision", user["usuario"], detail=f"{report['codigo_caso']}:{report['resultado_validacion']}")
-            except ProductError as e:
-                st.error(str(e))
-        if code := st.session_state.get("saved_code"):
-            saved = next((r for r in archive.list() if r["codigo_caso"] == code), None)
-            if saved:
-                st.success(f"Revisión registrada: {saved['resultado_validacion']}. El informe quedó en el historial.")
-                downloads(code)
-            if st.button("Nuevo análisis", icon=":material/add_photo_alternate:", width="stretch"):
-                reset_case(); st.rerun()
+            last = case.data["runs"][-1]
+            result_panel(case, last)
+            section("3 · Validación")
+            validation_panel(case, last, user)
 
 
 def corrected_items(edited, original: list[dict]) -> list[dict]:
@@ -599,7 +624,7 @@ def unevaluable_form(case: Case, user: dict) -> None:
 def downloads(code: str) -> None:
     top = st.container()
     c1, c2 = st.columns(2)
-    for col, (kind, label) in zip((top, c1, c2), (("pdf", "Descargar informe PDF"), ("csv", "Tabla CSV"), ("json", "Datos JSON"))):
+    for col, (kind, label) in zip((top, c1, c2), (("pdf", "Descargar informe PDF"), ("csv", "Tabla CSV"), ("json", "Datos JSON")), strict=True):
         try:
             data, name, mime = archive.file(code, kind)
         except (OSError, ProductError):
@@ -846,7 +871,7 @@ def qa_page() -> None:
     if st.button("Ejecutar pruebas", type="primary", icon=":material/play_arrow:"):
         with st.spinner("Ejecutando pruebas… (puede tardar un minuto)"):
             env = {**os.environ, "PYTHONIOENCODING": "utf-8"}
-            proc = subprocess.run([sys.executable, str(ROOT / "ejecutar_pruebas_qa.py"), "panel_admin"],
+            proc = subprocess.run([sys.executable, str(ROOT / "ejecutar_pruebas_qa.py"), "panel_admin"],  # noqa: S603 (argumentos fijos)
                                   cwd=ROOT, capture_output=True, text=True, encoding="utf-8", env=env, timeout=600)
         store.audit("pruebas_qa", st.session_state["user"]["usuario"], detail=f"exit={proc.returncode}")
         (st.success if proc.returncode == 0 else st.error)("Resultado: APTA" if proc.returncode == 0 else "Resultado: NO APTA")
@@ -995,7 +1020,8 @@ def data_page() -> None:
         try:
             pmap = {}
             if mapping:
-                import csv as _csv, io as _io
+                import csv as _csv
+                import io as _io
                 pmap = {r["nombre_original"]: r["patient_code"] for r in _csv.DictReader(_io.StringIO(mapping.getvalue().decode("utf-8-sig")))}
             zip_bytes, manifest, corr = datos.deidentify_batch([(f.name, f.getvalue()) for f in files], code, pmap)
             st.session_state["lote"] = (code, zip_bytes, corr, len(manifest))

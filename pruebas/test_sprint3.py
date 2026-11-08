@@ -186,6 +186,36 @@ class Sprint3Tests(unittest.TestCase):
         with self.assertRaises(ProductError):
             case.review("corregir", "qa_user", [{**fixed[0], "box": [10, 10, 5000, 200]}])
 
+    # ── I11 protección de datos y secretos en el repositorio ──
+    def test_122_auditoria_de_proteccion_de_datos(self):
+        from informe import CaseArchive, build_report
+        from pruebas.apoyo import PERFIL
+        data_dir = self.root / "datos"
+        UserStore(data_dir / "usuarios.json").create_user("ana", PASSWORD, "usuario", must_change=False)
+        case = Case(SAMPLE, "PROT01"); case.quality(True); case.infer(real_detector()); case.review("aceptar", "ana")
+        CaseArchive(data_dir / "casos").save(case, build_report(case, "ana", PERFIL), case.image)
+        ok = datos.audit_data_protection(data_dir)
+        self.assertEqual(ok["indicador_I11"], 100.0)
+        self.assertEqual(ok["problemas"], [])
+        (data_dir / "casos" / "PROT01" / "informe.json").write_text('{"ruta": "C:/Users/ana/paciente.jpg"}', encoding="utf-8")
+        bad = datos.audit_data_protection(data_dir)
+        self.assertLess(bad["indicador_I11"], 100.0)
+        self.assertTrue(any("ruta local" in i for i in bad["problemas"]))
+
+    def test_123_repositorio_sin_secretos(self):
+        import re
+        import subprocess
+        from pruebas.apoyo import ROOT
+        files = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True).stdout.split()  # noqa: S603,S607
+        self.assertTrue(files, "el proyecto debe estar bajo control de versiones")
+        pattern = re.compile(r"api_key\s*=\s*[\"'][A-Za-z0-9]{12,}|ghp_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}")
+        leaks = [f for f in files if f.endswith((".py", ".md", ".toml", ".txt", ".json", ".bat", ".example"))
+                 and pattern.search((ROOT / f).read_text(encoding="utf-8", errors="ignore"))]
+        self.assertEqual(leaks, [])
+        tracked = [f for f in files if f.startswith("datos/") or f.endswith(".pt")
+                   or f in ("CREDENCIALES_INICIALES.txt", ".streamlit/secrets.toml")]
+        self.assertEqual(tracked, [])  # datos de uso, pesos y credenciales fuera del repositorio
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
