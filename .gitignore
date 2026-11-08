@@ -9,10 +9,12 @@ htmlcov/
 # Datos de uso: usuarios, casos, auditoría y respaldos NO van al repositorio (RNF04)
 datos/
 CREDENCIALES_INICIALES.txt
+SECRETS_STREAMLIT.txt
 .streamlit/secrets.toml
 
-# Pesos del modelo: custodia separada (informe, sección 3). Ver DESPLIEGUE.md para publicarlos.
+# Pesos del modelo: solo best.pt entra al repositorio PRIVADO para el despliegue (cambio CC-S3-06).
 *.pt
+!best.pt
 *.descarga
 
 # Copia de la demo original: su historial queda en la etiqueta v1.0.0

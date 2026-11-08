@@ -212,9 +212,9 @@ class Sprint3Tests(unittest.TestCase):
         leaks = [f for f in files if f.endswith((".py", ".md", ".toml", ".txt", ".json", ".bat", ".example"))
                  and pattern.search((ROOT / f).read_text(encoding="utf-8", errors="ignore"))]
         self.assertEqual(leaks, [])
-        tracked = [f for f in files if f.startswith("datos/") or f.endswith(".pt")
-                   or f in ("CREDENCIALES_INICIALES.txt", ".streamlit/secrets.toml")]
-        self.assertEqual(tracked, [])  # datos de uso, pesos y credenciales fuera del repositorio
+        tracked = [f for f in files if f.startswith("datos/") or (f.endswith(".pt") and f != "best.pt")
+                   or f in ("CREDENCIALES_INICIALES.txt", "SECRETS_STREAMLIT.txt", ".streamlit/secrets.toml")]
+        self.assertEqual(tracked, [])  # datos de uso y credenciales fuera; solo best.pt (repo privado, CC-S3-06)
 
 
 if __name__ == "__main__":

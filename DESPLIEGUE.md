@@ -18,7 +18,7 @@ PerioVision 1.2.0 queda listo para publicarse desde un repositorio de GitHub. La
 
 ## 2. Publicar los pesos del modelo
 
-Elige una opción y regístrala en el control de cambios:
+**Opción vigente: B** (cambio CC-S3-06, 08/11/2026): `best.pt` está en el repositorio privado. La opción A queda disponible si el repositorio deja de ser privado.
 
 - **A. URL privada (recomendada, respeta la custodia separada de los pesos):** sube `best.pt` a un almacenamiento con enlace privado y ponlo en los secrets (paso 4) junto con su huella. La app descarga los pesos una vez y los descarta si la huella no coincide.
 - **B. Repositorio privado:** `git add -f best.pt` y haz un commit. Es más simple, pero los pesos quedan dentro del repositorio técnico.
