@@ -93,6 +93,14 @@ class SistemaMvpTests(unittest.TestCase):
             self.assertEqual(ns["cloud_bootstrap"](), "modelo verificado")
         self.assertEqual(model.read_bytes(), payload)
 
+    def test_125_aviso_de_licencia_agpl_en_el_acceso(self):
+        import core
+        at = app_test().run()
+        html = " ".join(m.value for m in at.markdown)
+        self.assertIn(core.VERSION, html)
+        self.assertIn("AGPL-3.0", html)
+        self.assertIn("código fuente", html)
+
     def test_119_correccion_desde_el_editor(self):
         ns = app_namespace()
         original = [{"class": "Stage 2", "confidence": 0.87, "box": [1, 2, 3, 4]}]

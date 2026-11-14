@@ -1,0 +1,139 @@
+================================================================================================
+PERIOVISION · LOG DE PRUEBAS QA · V1-2-1
+Fecha: 14/11/2026 18:40:03 (UTC-05)   Python 3.12.10   Pillow 13.0.0   Streamlit 1.67.0   Ultralytics 8.4.207
+================================================================================================
+ID   ESTADO          MS  GRUPO                                     PRUEBA
+------------------------------------------------------------------------------------------------
+01   APROBADA      10.7  Carga y calidad                           test_01_carga_valida_sin_metadatos_en_registro
+02   APROBADA      11.3  Carga y calidad                           test_02_rechazo_formato
+03   APROBADA      11.3  Carga y calidad                           test_03_rechazo_archivo_corrupto
+04   APROBADA      70.4  Carga y calidad                           test_04_rechazo_archivo_grande
+05   APROBADA      13.3  Carga y calidad                           test_05_contenido_no_corresponde_a_extension
+06   APROBADA      10.2  Carga y calidad                           test_06_no_evaluable_bloquea_inferencia
+07   APROBADA      13.9  DEMO y bloqueos                           test_07_demo_resultado_prefijado_identificado
+08   APROBADA      22.2  DEMO y bloqueos                           test_08_demo_rechaza_otras_imagenes
+09   APROBADA       9.6  DEMO y bloqueos                           test_09_modelo_sin_permiso_bloqueado
+10   APROBADA       9.6  DEMO y bloqueos                           test_10_pesos_ausentes_sin_fallback
+11   APROBADA      14.1  DEMO y bloqueos                           test_11_fallo_memoria_conserva_registro
+12   APROBADA      13.2  Revisión                                  test_12_corregir_preserva_original_y_historial
+13   APROBADA      13.1  Revisión                                  test_13_corregir_fuera_de_imagen_rechazado
+14   APROBADA      12.7  Revisión                                  test_14_descartar_guarda_original
+15   APROBADA      15.8  Revisión                                  test_15_nueva_corrida_no_hereda_revision
+16   APROBADA      33.7  Exportación y datos de entrada            test_16_exporta_demo_y_provisional_sin_sobrescribir
+17   APROBADA      26.0  Exportación y datos de entrada            test_17_exporta_original_y_revision
+18   APROBADA      10.4  Exportación y datos de entrada            test_18_codigos_no_admiten_formulas_o_rutas
+19   APROBADA       9.7  Exportación y datos de entrada            test_19_numeros_no_finitos_rechazados
+20   APROBADA      11.8  Partición estructural                     test_20_particion_detecta_paciente_compartido
+21   APROBADA      12.7  Partición estructural                     test_21_particion_detecta_hash_duplicado
+22   APROBADA      11.4  Partición estructural                     test_22_particion_valida_no_certifica_clinica
+23   APROBADA      12.3  Partición estructural                     test_23_manifiesto_vacio_rechazado
+24   APROBADA      11.7  Sin detecciones                           test_24_sin_detecciones_conserva_advertencia
+25   APROBADA       2.9  Lectura de métricas                       test_25_ultima_fila_y_maximo_no_son_lo_mismo
+26   APROBADA       3.0  Lectura de métricas                       test_26_denominador_cero
+27   APROBADA       3.0  Lectura de métricas                       test_27_rechaza_nan
+28   APROBADA       2.8  Lectura de métricas                       test_28_rechaza_epocas_repetidas
+29   APROBADA       2.6  Lectura de métricas                       test_29_rechaza_metricas_porcentuales_fuera_de_rango
+30   APROBADA       2.4  Lectura de métricas                       test_30_rechaza_serie_vacia
+31   APROBADA     756.2  Seguridad e inicio de sesión (adicional)  test_31_contrasena_no_se_guarda_en_claro
+32   APROBADA    1448.7  Seguridad e inicio de sesión (adicional)  test_32_sal_unica_por_usuario
+33   APROBADA    1445.0  Seguridad e inicio de sesión (adicional)  test_33_acceso_correcto_devuelve_rol
+34   APROBADA    1471.6  Seguridad e inicio de sesión (adicional)  test_34_mensaje_generico_no_revela_usuario
+35   APROBADA    2955.7  Seguridad e inicio de sesión (adicional)  test_35_bloqueo_tras_intentos_fallidos
+36   APROBADA     732.1  Seguridad e inicio de sesión (adicional)  test_36_politica_de_contrasena
+37   APROBADA     721.0  Seguridad e inicio de sesión (adicional)  test_37_solo_dos_roles
+38   APROBADA    2542.2  Seguridad e inicio de sesión (adicional)  test_38_usuario_invalido_o_inyeccion_rechazada
+39   APROBADA     741.7  Seguridad e inicio de sesión (adicional)  test_39_siempre_queda_un_administrador
+40   APROBADA    2176.1  Seguridad e inicio de sesión (adicional)  test_40_cambio_de_contrasena_y_auditoria_sin_secretos
+41   APROBADA     385.8  Perfil, informes e historial (adicional)  test_41_perfil_valida_y_exige_cop_al_usuario
+42   APROBADA      14.6  Perfil, informes e historial (adicional)  test_42_csv_es_un_informe_legible
+43   APROBADA      48.9  Perfil, informes e historial (adicional)  test_43_pdf_generado_con_profesional
+44   APROBADA      89.4  Perfil, informes e historial (adicional)  test_44_historial_guarda_y_lista_quien_valido
+45   APROBADA       0.0  Unitarias                                 test_45_check_detections_acepta_valida_y_normaliza_tipos
+46   APROBADA       0.0  Unitarias                                 test_46_check_detections_rechaza_clase_caja_y_confianza
+47   APROBADA       0.8  Unitarias                                 test_47_draw_detections_no_modifica_original
+48   APROBADA      11.9  Unitarias                                 test_48_sha256_coincide_con_hashlib
+49   APROBADA       0.0  Unitarias                                 test_49_ubicacion_aproximada_en_cuadricula
+50   APROBADA       0.1  Unitarias                                 test_50_validacion_nombre_usuario
+51   APROBADA       1.3  Unitarias                                 test_51_contrasena_generada_cumple_politica
+52   APROBADA       2.2  Unitarias                                 test_52_hash_y_verificacion
+53   APROBADA       0.0  Unitarias                                 test_53_nombre_visible
+54   APROBADA       2.3  Unitarias                                 test_54_metricas_con_encabezados_con_espacios
+55   APROBADA       0.0  Unitarias                                 test_55_descripciones_cubren_todas_las_clases
+56   APROBADA       0.1  Unitarias                                 test_56_informe_json_es_utf8_legible
+57   APROBADA      52.9  Integración                               test_57_carga_real_mas_yolo_real
+58   APROBADA       0.7  Integración                               test_58_clases_del_modelo_coinciden_con_protocolo
+59   APROBADA     206.0  Integración                               test_59_calibracion_del_admin_se_aplica_al_detector
+60   APROBADA     903.0  Integración                               test_60_flujo_completo_hasta_historial
+61   APROBADA      47.8  Integración                               test_61_csv_del_informe_coincide_con_salida_del_modelo
+62   APROBADA      54.1  Integración                               test_62_registro_tecnico_y_exportacion_core_con_modelo_real
+63   APROBADA    1700.7  Sistema                                   test_63_pantalla_de_acceso_sin_contenido_protegido
+64   APROBADA    2958.3  Sistema                                   test_64_acceso_incorrecto_y_correcto
+65   APROBADA    2918.3  Sistema                                   test_65_navegacion_por_rol
+66   APROBADA    1988.6  Sistema                                   test_66_cambio_de_contrasena_obligatorio
+67   APROBADA    2007.2  Sistema                                   test_67_perfil_obligatorio_para_usuario
+68   APROBADA    1497.7  Sistema                                   test_68_cierre_de_sesion_por_inactividad
+69   APROBADA    2110.3  Sistema                                   test_69_admin_crea_usuario_desde_formulario
+70   APROBADA    2183.6  Sistema                                   test_70_calibracion_del_admin_y_vista_de_usuario_sin_parametros
+71   APROBADA     145.4  Aceptación                                test_71_CA05_carga_valida_e_invalidas_rechazadas_con_causa
+72   APROBADA    2312.1  Aceptación                                test_72_CA06_detecciones_mostradas_igual_a_salida_almacenada
+73   APROBADA      49.6  Aceptación                                test_73_CA07_pendiente_hasta_validar_y_registro_sin_sobrescribir
+74   APROBADA      46.7  Aceptación                                test_74_CA08_informe_coincide_con_revision_y_sin_datos_identificables
+75   APROBADA    3107.0  Aceptación                                test_75_RNF04_cien_por_ciento_de_pruebas_de_roles
+76   APROBADA    1638.6  Aceptación                                test_76_RNF05_pantallas_e_informes_indican_apoyo_experimental
+77   APROBADA     277.6  Aceptación                                test_77_cliente_informe_identifica_profesional_e_historial_por_estado
+78   APROBADA    1653.1  Aceptación                                test_78_cliente_usuario_no_cambia_calibracion_ni_cop
+79   APROBADA       1.1  Humo                                      test_79_modulos_y_dependencias_importan
+80   APROBADA     150.5  Humo                                      test_80_modelo_presente_carga_y_predice
+81   APROBADA       1.1  Humo                                      test_81_configuracion_valida
+82   APROBADA    2093.5  Humo                                      test_82_servidor_arranca_y_responde
+83   APROBADA    4080.3  Rendimiento                               test_83_inferencia_p95_menor_a_100_ms
+84   APROBADA    5069.4  Rendimiento                               test_84_carga_a_visualizacion_p95_menor_a_3_s
+85   APROBADA    2090.7  Rendimiento                               test_85_generacion_de_informe_p95_menor_a_1_s
+86   APROBADA    4079.0  Rendimiento                               test_86_inicio_de_sesion_seguro_y_usable
+87   APROBADA    2055.4  Seguridad de la aplicación                test_87_usuario_no_accede_a_paginas_de_administrador
+88   APROBADA    1835.7  Seguridad de la aplicación                test_88_xss_en_historial_se_escapa
+89   APROBADA      12.6  Seguridad de la aplicación                test_89_recorrido_de_rutas_bloqueado
+90   APROBADA      12.4  Seguridad de la aplicación                test_90_configuracion_endurecida_del_servidor
+91   APROBADA      45.9  Seguridad de la aplicación                test_91_bomba_de_descompresion_rechazada
+92   APROBADA    2593.6  Seguridad de la aplicación                test_92_tiempo_no_revela_si_el_usuario_existe
+93   APROBADA      14.6  Seguridad de la aplicación                test_93_csv_neutraliza_inyeccion_de_formulas
+94   APROBADA    1193.6  Seguridad de la aplicación                test_94_registros_sin_secretos_ni_rutas_locales
+95   APROBADA    1108.8  Usabilidad y accesibilidad                test_95_contraste_wcag_aa_en_claro_y_oscuro
+96   APROBADA    2660.6  Usabilidad y accesibilidad                test_96_todos_los_campos_tienen_etiqueta_visible
+97   APROBADA    2376.8  Usabilidad y accesibilidad                test_97_mensajes_de_error_claros_y_en_espanol
+98   APROBADA    1112.5  Usabilidad y accesibilidad                test_98_objetivos_tactiles_foco_movimiento_e_idioma
+99   APROBADA    1537.0  Usabilidad y accesibilidad                test_99_flujo_de_analisis_sin_pasos_innecesarios
+100  APROBADA    1695.8  Usabilidad y accesibilidad                test_100_estados_vacios_con_guia
+101  APROBADA      16.4  Seguridad de la aplicación                test_101_sin_instalaciones_automaticas_en_ejecucion
+102  APROBADA       1.0  Funciones que completan el MVP            test_102_metricas_con_resultado_conocido
+103  APROBADA       0.6  Funciones que completan el MVP            test_103_ap_y_map_perfectos_y_denominador_cero
+104  APROBADA       0.6  Funciones que completan el MVP            test_104_iou_y_etiquetas_yolo
+105  APROBADA      85.7  Funciones que completan el MVP            test_105_CA09_recalculo_desde_predicciones_guardadas
+106  APROBADA       0.7  Funciones que completan el MVP            test_106_zip_de_prueba_inseguro_rechazado
+107  APROBADA       2.5  Funciones que completan el MVP            test_107_lote_sin_metadatos_y_con_nombres_codificados
+108  APROBADA       3.7  Funciones que completan el MVP            test_108_manifiesto_del_lote_pasa_la_auditoria
+109  APROBADA       0.7  Funciones que completan el MVP            test_109_kappa_ponderado
+110  APROBADA     795.5  Funciones que completan el MVP            test_110_respaldo_y_restauracion_con_huellas
+111  APROBADA       6.1  Funciones que completan el MVP            test_111_respaldo_alterado_se_rechaza_sin_tocar_datos
+112  APROBADA      18.3  Funciones que completan el MVP            test_112_respaldo_diario_automatico_conserva_siete
+113  APROBADA      50.1  Funciones que completan el MVP            test_113_correccion_conserva_original_y_valida_cajas
+114  APROBADA    1939.9  Sistema (funciones del MVP)               test_114_paginas_nuevas_del_administrador_cargan
+115  APROBADA    1526.0  Sistema (funciones del MVP)               test_115_respaldo_diario_automatico_al_abrir_estado
+116  APROBADA    1750.2  Sistema (funciones del MVP)               test_116_crear_respaldo_desde_la_pagina
+117  APROBADA    1753.5  Sistema (funciones del MVP)               test_117_historial_muestra_no_evaluables
+118  APROBADA    1884.5  Sistema (funciones del MVP)               test_118_arranque_en_la_nube_crea_administrador_desde_secrets
+119  APROBADA    1128.6  Sistema (funciones del MVP)               test_119_correccion_desde_el_editor
+120  APROBADA    1150.2  Sistema (funciones del MVP)               test_120_registro_no_evaluable_sin_inferencia
+121  APROBADA    1190.4  Sistema (funciones del MVP)               test_121_informe_de_caso_corregido
+122  APROBADA     626.3  Protección de datos y secretos            test_122_auditoria_de_proteccion_de_datos
+123  APROBADA      68.8  Protección de datos y secretos            test_123_repositorio_sin_secretos
+124  APROBADA    1196.5  Sistema (despliegue en la nube)           test_124_descarga_del_modelo_verificada_por_huella
+125  APROBADA    1514.7  Sistema (despliegue en la nube)           test_125_aviso_de_licencia_agpl_en_el_acceso
+------------------------------------------------------------------------------------------------
+Pruebas documentadas (01-30): 30/30 aprobadas
+Total ejecutadas: 125 · aprobadas 125 · fallidas 0 · errores 0
+Por tipo: Regresión 30/30 · Seguridad 19/19 · Funcional (perfil e informes) 4/4 · Unitaria 12/12 · Integración 6/6 · Sistema 18/18 · Aceptación 8/8 · Humo 4/4 · Rendimiento 4/4 · Usabilidad 6/6 · Funcional (MVP completo) 14/14
+DICTAMEN QA: APTA
+================================================================================================
+
+TRAZAS

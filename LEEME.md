@@ -1,4 +1,4 @@
-# PerioVision · v1.2.0
+# PerioVision · v1.2.1
 
 Prototipo académico que carga una radiografía periapical, ejecuta el detector YOLO (`best.pt`) y permite revisar y exportar el resultado. **No constituye un diagnóstico.**
 

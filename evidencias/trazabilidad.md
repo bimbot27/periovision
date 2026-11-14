@@ -1,4 +1,4 @@
-# Matriz de trazabilidad · PerioVision 1.2.0
+# Matriz de trazabilidad · PerioVision 1.2.1
 
 Fecha: 08/11/2026. Un requisito cuenta para I12 si tiene al menos una prueba ejecutada y su evidencia en el repositorio. La aceptación externa se registra aparte.
 

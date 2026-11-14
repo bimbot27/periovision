@@ -62,7 +62,7 @@
     },
     {
       "comprobacion": "Nube: usuario con COP y análisis de prueba",
-      "resultado": "Pendiente del responsable (alta de cuentas en producción)"
+      "resultado": "Correcto el 08/11/2026: el responsable creó un usuario con COP, analizó y aprobó un caso (3 hallazgos, confianza máxima 87 %); figuras 7.3 y 7.4 del capítulo VII"
     }
   ]
 }

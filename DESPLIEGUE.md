@@ -1,6 +1,6 @@
 # Despliegue preliminar en Streamlit Community Cloud
 
-PerioVision 1.2.0 queda listo para publicarse desde un repositorio de GitHub. La publicación la hace el responsable del proyecto con su propia cuenta.
+PerioVision está publicado desde el repositorio privado `bimbot27/periovision` (versión vigente 1.2.1). Esta guía documenta cómo se hizo y cómo repetirlo con otra cuenta.
 
 > **Alcance del despliegue preliminar.** Es una demostración técnica con datos sintéticos o de ejemplo. No cargues radiografías de pacientes reales en la nube sin la autorización del cliente y el protocolo de datos (RNF10). El sistema de archivos de Streamlit Cloud se borra cuando la app se reinicia: usuarios, casos y auditoría se pierden. Antes de cada reinicio, descarga un respaldo desde **Respaldos**.
 
@@ -51,11 +51,18 @@ model_sha256 = "0ddce02e5149067d01464c4ee611e2fb6beb87f2f4a9f23934822da76b355eaa
 
 El administrador inicial se crea solo si no hay usuarios y debe cambiar la clave al entrar.
 
+### Quién puede abrir la app
+
+Una app desplegada desde un repositorio privado queda **solo por invitación**: quien no inició sesión ve "You do not have access to this app". En **App settings › Sharing**:
+
+- **Recomendado para la sustentación:** agrega como espectadores los correos del docente y del cliente.
+- **Abrirla a cualquiera:** activa "This app is public". En ese caso, por la licencia AGPL-3.0 de Ultralytics, cualquier usuario puede pedir el código fuente; la app ya muestra ese aviso en la pantalla de acceso.
+
 ## 5. Validar el despliegue
 
 Después de publicar, sigue la lista de `evidencias/validacion_tecnica.md`:
 
-1. La app abre y muestra el acceso con `periovision-1.2.0`.
+1. La app abre y muestra el acceso con `periovision-1.2.1` y el aviso de licencia AGPL-3.0.
 2. El administrador entra, cambia la clave y ve **Estado del sistema** con el modelo Activo.
 3. **Modelo y calibración › Verificar modelo** muestra las cuatro clases.
 4. Crea un usuario con COP, entra con él, analiza `ejemplos/radiografia_ejemplo.jpg`, registra la revisión y descarga el PDF.

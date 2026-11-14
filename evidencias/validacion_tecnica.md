@@ -18,7 +18,7 @@ Fecha: 08/11/2026. Entorno: clon limpio de la etiqueta `v1.2.0` en una carpeta v
 | Nube: verificar modelo | `detect`; cuatro clases; 0,57 s |
 | Nube: batería QA desde el panel | 123/124 (30/30 documentadas). Falla la 83: inferencia p95 > 100 ms en la CPU compartida (≈ 80 ms de media). **Observación O-02:** RNF02 se mide en el equipo de referencia (35 ms, cumple) |
 | Nube: respaldos | Automático y manual creados |
-| Nube: usuario con COP y análisis de prueba | Pendiente del responsable |
+| Nube: usuario con COP y análisis de prueba | Correcto el 08/11/2026: caso aprobado con 3 hallazgos (confianza máxima 87 %); `evidencias/despliegue/03_*` y `04_*` |
 
 ## Lista para repetir sobre la URL pública
 

@@ -324,7 +324,7 @@ def login_view() -> None:
                 else:
                     st.session_state.update(user=user, last_seen=time.time())
                     st.rerun()
-        st.markdown(f'<p class="pv-foot">{esc(core.VERSION)}</p>', unsafe_allow_html=True)
+        st.markdown(f'<p class="pv-foot">{esc(core.VERSION)}<br>{esc(core.LICENSE_NOTICE)}</p>', unsafe_allow_html=True)
 
 
 def change_password_form(forced: bool = False) -> None:

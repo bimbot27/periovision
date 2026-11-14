@@ -19,7 +19,9 @@ from PIL import Image, ImageDraw
 os.environ.setdefault('YOLO_AUTOINSTALL', 'false')
 os.environ.setdefault('YOLO_OFFLINE', 'true')
 
-VERSION = 'periovision-1.2.0'
+VERSION = 'periovision-1.2.1'
+LICENSE_NOTICE = ('Incluye Ultralytics YOLO (AGPL-3.0): los usuarios pueden solicitar el código fuente '
+                  'correspondiente al responsable del proyecto.')
 MAX_BYTES = 20 * 1024 * 1024
 MAX_PIXELS = 20_000_000
 LABELS = ('Normal', 'Stage 1', 'Stage 2', 'Stage 3')
